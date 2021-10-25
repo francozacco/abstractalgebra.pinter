@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 3 - The definition of groups}
+
+	\subsubsection*{Problem A}
+
+		Prove that each of the following sets, with the indicated operation, is an Abelian group
+		\begin{itemize}
+			\item [\textbf{1}] $x * y = x+y+k$ ($k$ a fixed constant), on the set $\mathbb{R}$.
+			\item [\textbf{2}] $x*y=\frac{xy}{2}$, on the set $\{ x \in \mathbb{R}: x \neq 0\}$
+		\end{itemize}
+
+	\subsubsection*{Solutions}
+
+		\begin{proof}{\textbf{1}}
+		First, it's necessary to prove that this set with the indicated operation is a group:
+		\begin{itemize}
+			\item [(i)] Let $l$ be a fixed constant then\\
+			$x*(y*z)=x+(y+z+k)+l = x+y+z+k+l$ \\
+			$(x*y)*z=(x+y+k)+z+l = x+y+k+z+l=x+y+z+k+l$ \\
+			Therefore $*$ is an associative operation.
+			\item [(ii)] $x*e=x$ then $x+e+k=x \Rightarrow e=-k$
+			\item [(iii)] $x*x'=e$ then $x+x'+k=e \Rightarrow x'=-x-2k$
+			\item [(iv)] Finally, for this set with this operation to be an Abelian group, it's necessary that the operation be commutative, so \\
+			$x*y =x+y+k$ and $y*x=y+x+k=x+y+k$.\\
+			Therefore $*$ is a commutative operation and with the set $\mathbb{R}$, they form an Abelian group.
+		\end{itemize}
+		\end{proof}
+
+		\begin{proof}{\textbf{2}}
+		First, it's necessary to prove that this set with the indicated operation is a group:
+		\begin{itemize}
+			\item [(i)] $x*(y*z)= \frac{x\frac{yz}{2}}{2}=\frac{xyz}{4}$ \\
+			$(x*y)*z= \frac{\frac{xy}{2}z}{2}=\frac{xyz}{4}$ \\
+			Therefore $*$ is an associative operation.
+			\item [(ii)] $x*e=x$ then $\frac{xe}{2}=x \Rightarrow e=2$
+			\item [(iii)] $x*x'=e$ then $\frac{xx'}{2}=e \Rightarrow x'=\frac{4}{x}$
+			\item [(iv)] Finally, for this set with this operation to be an Abelian group, it's necessary that the operation be commutative, so \\
+			$x*y =\frac{xy}{2}$ and $y*x=\frac{yx}{2}=\frac{xy}{2}$.\\
+			Therefore $*$ is a commutative operation and with the set $\mathbb{R}$, they form an Abelian group.
+		\end{itemize}
+		\end{proof} 
+
+\cleardoublepage 
+	\subsubsection*{Problem B}
+
+\end{document}
