@@ -4,6 +4,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{bm}
+\usepackage{adjustbox}
 
 \title{\textbf{Solved Abstract Algebra - Pinter}}
 \author{Franco Zacco}
@@ -32,9 +33,9 @@
 		\begin{proof}{\textbf{1}}
 		First, it's necessary to prove that this set with the indicated operation is a group:
 		\begin{itemize}
-			\item [(i)] Let $l$ be a fixed constant then\\
-			$x*(y*z)=x+(y+z+k)+l = x+y+z+k+l$ \\
-			$(x*y)*z=(x+y+k)+z+l = x+y+k+z+l=x+y+z+k+l$ \\
+			\item [(i)]			
+			$x*(y*z)=x+(y+z+k)+k = x+y+z+2k$ \\
+			$(x*y)*z=(x+y+k)+z+k = x+y+k+z+k=x+y+z+2k$ \\
 			Therefore $*$ is an associative operation.
 			\item [(ii)] $x*e=x$ then $x+e+k=x \Rightarrow e=-k$
 			\item [(iii)] $x*x'=e$ then $x+x'+k=e \Rightarrow x'=-x-2k$
@@ -58,7 +59,134 @@
 		\end{itemize}
 		\end{proof} 
 
-\cleardoublepage 
 	\subsubsection*{Problem B}
+	Which of the following subsets of $\mathbb{R} \times \mathbb{R}$, with the indicated operation, is a group? Which is an Abelian group?
+		\begin{itemize}
+			\item [\textbf{1}] $(a,b)*(c,d)=(ad+bc,bd)$ on the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: y \neq 0\}$
+			\item [\textbf{2}] $(a,b)*(c,d)=(ac,bc+d)$ on the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: x \neq 0\}$
+		\end{itemize}
+	
+	\subsubsection*{Solutions}
+	
+		\begin{proof}{\textbf{1}}
+		\begin{itemize}
+			\item [(i)] Associative rule:\\
+			$(e,f)*((a, b)*(c,d)) = (e,f)*(ad+bc,bd) = (ebd+f(ad+bc),fbd)=(ebd+fad+fbc,fbd)$ \\
+			$((e,f)*(a,b))*(c,d) = (eb+fa,fb)*(c,d) = ((eb+fa)d+fbc,fbd)=(ebd+fad+fbc,fbd)$\\
+			Therefore $*$ is an associative operation.
+			\item [(ii)] Identity element: Solve $(a,b) *(e_1, e_2) = (a*b)$ so\\
+			$(ae_2+be_1,be_2) = (a,b)$ then:
+			\begin{equation*}
+    			\begin{cases}
+      				ae_2+be_1 = a\\
+      				be_2=b
+    			\end{cases}
+			\end{equation*}
+			Given that $b \neq 0$ then $e_2 = \frac{b}{b} = 1$\\
+			replacing that result $a+be_1 = a$ then $e_1 = 0$
+			\item [(iii)] Inverse: Solve $(a,b)*(a',b')=(e_1,e_2)$ so\\
+			$(ab'+ba',bb') = (e_1,e_2) = (0,1)$ then:
+			\begin{equation*}
+    			\begin{cases}
+      				ab'+ba' = 0\\
+      				bb'=1
+    			\end{cases}
+			\end{equation*}
+			Given that $b \neq 0$ then $b' = \frac{1}{b}$ \\
+			and replacing that result $a\frac{1}{b} + ba'=0$ then $ba' = -\frac{a}{b} \Rightarrow a'=-\frac{a}{b^2}$
+		\end{itemize}
+		So $*$ with the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: y \neq 0\}$ is a group.\\
+		Let's see if it's an Abelian group.
+			\begin{itemize}
+			\item [(iv)] Commutative rule:\\
+			$(a,b)*(c,d) = (ad+bc,bd)$ and \\
+			$(c,d)*(a,b) = (cb+da,bd)=(ad+bc,bd)$\\
+			Therefore $*$ is a commutative rule. 
+			\end{itemize}
+		And so the operation $*$ with the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: y \neq 0\}$ is an Abelian group too.
+		\end{proof}
 
+		\begin{proof}{\textbf{2}}
+		\begin{itemize}
+			\item [(i)] Associative rule:\\
+			$(e,f)*((a, b)*(c,d)) = (e,f)*(ac,bc+d) = (eac,fac+bc+d)$ and \\
+			$((e,f)*(a,b))*(c,d) = (ea,fa+b)*(c,d) = (eac,(fa+b)c+d) = (eac,fac+bc+d)$\\
+			Therefore $*$ is an associative operation.
+			
+			\item [(ii)] Identity element: Solve $(a,b) *(e_1, e_2) = (a*b)$ so\\
+			$(ae_1, be_1+e_2) = (a,b)$ then:
+			\begin{equation*}
+    			\begin{cases}
+      				ae_1 = a\\
+      				be_1+e_2=b
+    			\end{cases}
+			\end{equation*}
+			Given that $a \neq 0$ then $e_1 = \frac{a}{a} = 1$\\
+			replacing that result $b+e_2 = b$ then $e_2 = 0$
+			
+			\item [(iii)] Inverse: Solve $(a,b)*(a',b')=(e_1,e_2)$ so\\
+			$(aa',ba'+b') = (e_1,e_2) = (1,0)$ then:
+			\begin{equation*}
+    			\begin{cases}
+      				aa' = 1\\
+      				ba'+b'=0
+    			\end{cases}
+			\end{equation*}
+			Given that $a \neq 0$ then $a' = \frac{1}{a}$ \\
+			and replacing that result $b\frac{1}{a} + b'=0$ then $b' = -\frac{a}{b}$
+		\end{itemize}
+		So $*$ with the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: x \neq 0\}$ is a group.\\
+		Let's see if it's an Abelian group.
+			\begin{itemize}
+			\item [(iv)] The operation $*$ is not a commutative rule, here a counter example is provided, let $(a,b)=(-1,0)$ and $(c,d)=(2,2)$ then:\\
+			$(a,b)*(c,d) = ((-1) \cdot 2, 0 \cdot 2 + 2) = (-2,2)$ and \\
+			$(c,d)*(a,b) = (2 \cdot (-1), 2 \cdot (-1) + 0)=(-2,-2)$\\ 
+			\end{itemize}
+		And so the operation $*$ with the set $\{(x,y) \in \mathbb{R} \times \mathbb{R}: x \neq 0\}$ is not an Abelian group.
+		\end{proof}
+
+	\subsubsection*{Problem C}
+	If $D$ is a set, then the \textit{power set} of $D$ is the set $P_D$ of all the subsets of $D$. That is,
+	\begin{equation*}
+    	P_D = \{A:A \subseteq D\}
+	\end{equation*}
+	The operation $+$ is to be regarded as an operation on $P_D$
+	\begin{itemize}
+		\item [\textbf{1}] Prove that there is an identity element with respect to the operation $+$.
+		\item [\textbf{2}] Prove every subset $A$ of $D$ has an inverse with respect to $+$.
+		\item [\textbf{3}] Let $D$ be the three-element set $D=\{a,b,c\}$. List the elements of $P_D$. (For example, one element is $\{a\}$, another is $\{a,b\}$, and so on. Do not forget the empty set and the whole set $D$) Then write the operation table for $\langle P_D, +\rangle$.
+	\end{itemize}
+	\subsubsection*{Solutions}
+		\begin{proof}{\textbf{1}}
+			Identity element: Solve $A+e = A$ where $e$ is the identity element.\\
+			Let $\{\}$ (the empty set) be the identity element, from the definition of the $+$ operation $A+B = A-B \cup B-A$ we have that\\
+			$A+\{\} = A - \{\} \cup \{\} - A = A \cup A = A$.\\
+			Therefore the empty set, $\{\}$ is the identity element.  		
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			Inverse element: Solve $A+A'=\{\}$ since all the elements in $A$ are in $A$ $\Rightarrow A+A = \{\}$.\\
+			Therefore $A' = A$ is the inverse element.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			The elements of $P_D$ are $\{\}, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}$\\
+			The operation table:\\
+			\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llllllll}
+				$+$ & $\{\}$ & $\{a\}$ & $\{b\}$ & $\{c\}$ & $\{a,b\}$ & $\{a,c\}$ & $\{b,c\}$ & $\{a,b,c\}$ \\ \hline
+				$\{\}$ & $\{\}$ & $\{a\}$ & $\{b\}$ & $\{c\}$ & $\{a,b\}$ & $\{a,c\}$ & $\{b,c\}$ & $\{a,b,c\}$ \\ 
+				$\{a\}$ & $\{a\}$ & $\{\}$ & $\{a,b\}$ & $\{a,c\}$ & $\{b\}$ & $\{c\}$ & $\{a,b,c\}$ & $\{b,c\}$ \\
+				$\{b\}$ & $\{b\}$ & $\{a,b\}$ & $\{\}$ & $\{b,c\}$ & $\{a\}$ & $\{a,b,c\}$ & $\{c\}$ & $\{a,c\}$ \\
+				$\{c\}$ & $\{c\}$ & $\{a,c\}$ & $\{b,c\}$ & $\{\}$ & $\{a,b,c\}$ & $\{a\}$ & $\{b\}$ & $\{a,b\}$ \\
+				$\{a,b\}$ & $\{a,b\}$ & $\{b\}$ & $\{a\}$ & $\{a,b,c\}$ & $\{\}$ & $\{b,c\}$ & $\{a,c\}$ & $\{c\}$ \\
+				$\{a,c\}$ & $\{a,c\}$ & $\{c\}$ & $\{a,b,c\}$ & $\{a\}$ & $\{b,c\}$ & $\{\}$ & $\{a,b\}$ & $\{b\}$ \\
+				$\{b,c\}$ & $\{b,c\}$ & $\{a,b,c\}$ & $\{c\}$ & $\{b\}$ & $\{a,c\}$ & $\{a,b\}$ & $\{\}$ & $\{a\}$ \\
+				$\{a,b,c\}$ & $\{a,b,c\}$ & $\{b,c\}$ & $\{a,c\}$ & $\{a,b\}$ & $\{c\}$ & $\{b\}$ & $\{a\}$ & $\{\}$ \\
+			\end{tabular}
+			\end{adjustbox}
+			\\\\
+		\end{proof}
+	
+	
+	
 \end{document}
