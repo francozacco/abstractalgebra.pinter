@@ -186,7 +186,182 @@
 			\end{adjustbox}
 			\\\\
 		\end{proof}
-	
-	
-	
+	\subsubsection*{Problem D}
+	We have a checkerboard with four squares, numbered 1, 2, 3, and 4. There is a single checker on the board and it has 4 possible moves: $V$, $H$, $D$, $I$.\\
+	We may consider an operation on the set of these forur moves, which consists of performing moves successively. For example, if we move horizontally and then vertically, we end up with the same result as if we had moved diagonally:
+	\begin{equation*}
+	H * V = D
+	\end{equation*}
+	If we perform two horizontal moves in succession, we end up where we started: $H*H=I$. If $G=\{V,H,D,I\}$ write the operations table of G and explain why $\langle G,* \rangle$ is a group.
+	\subsubsection*{Solution}
+	\begin{proof}
+	The operation table:\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+			$*$ & $I$ & $V$ & $H$ & $D$ \\ \hline
+			$I$ & $I$ & $V$ & $H$ & $D$ \\
+			$V$ & $V$ & $I$ & $D$ & $H$ \\
+			$H$ & $H$ & $D$ & $I$ & $V$ \\
+			$D$ & $D$ & $H$ & $V$ & $I$ \\
+		\end{tabular}
+		\end{adjustbox}
+	We claim that the identity element is $I$, since staying put and then performing any of the movements of $G$ is the same as doing the movement itself. Same if we perform any movement and then we stay put. This is also noticeable in the operations table.\\
+	On the other hand, we claim that the movement itself is its own inverse, since by definition if we perform twice the same movement the result is to end where we started which is the same as staying put.\\
+	Therefore $\langle G, * \rangle$ is a group.	
+	\end{proof}
+	\subsubsection*{Problem E}
+	If $G=\{I,M_1,M_2,M_3,M_4,M_5,M_6,M_7\}$ and $*$ is the operation, write the table of $\langle G, *\rangle$.\\
+	Granting associativity, explain why $\langle G, *\rangle$ is a group. Is it commutative? If not, show why not.
+	\cleardoublepage 
+	\subsubsection*{Solution}
+	\begin{proof}
+	The table of $\langle G, * \rangle$:\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllllll}
+			$*$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$\\ \hline
+			$I$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$\\
+			$M_1$ & $M_1$ & $I$ & $M_3$ & $M_2$ & $M_5$ & $M_4$ & $M_7$ & $M_6$ \\
+			$M_2$ & $M_2$ & $M_3$ & $I$ & $M_1$ & $M_6$ & $M_7$ & $M_4$ & $M_5$ \\
+			$M_3$ & $M_3$ & $M_2$ & $M_1$ & $I$ & $M_7$ & $M_6$ & $M_5$ & $M_4$ \\
+			$M_4$ & $M_4$ & $M_6$ & $M_5$ & $M_7$ & $I$ & $M_2$ & $M_1$ & $M_3$ \\
+			$M_5$ & $M_5$ & $M_7$ & $M_4$ & $M_6$ & $M_1$ & $M_3$ & $I$ & $M_2$ \\
+			$M_6$ & $M_6$ & $M_4$ & $M_7$ & $M_5$ & $M_2$ & $I$ & $M_3$ & $M_1$ \\
+			$M_7$ & $M_7$ & $M_5$ & $M_6$ & $M_4$ & $M_3$ & $M_1$ & $M_2$ & $I$ \\
+		\end{tabular}
+		\end{adjustbox}
+
+	From the table is clear that the identity element exists and it's $I$, and that for each element there is an inverse in which applying $*$ results in $I$. Therefore $G$ with the operation $*$ is a group.\\
+	On the other hand $*$ is not commutative, since for example $M_1 * M_4 = M_5$ but $M_4 * M_1 = M_6$.
+	\end{proof}
+	\subsubsection*{Problem F}
+	We will prove that the operation of word addition has the following properties on $\mathbb{B}^n$
+	\begin{itemize}
+		\item [\textbf{1}] It is commutative.
+		\item [\textbf{2}] It is associative.
+		\item [\textbf{3}] There is an identity element for word addition.
+		\item [\textbf{4}] Every word has an inverse under word addition.
+	\end{itemize}
+	\subsubsection*{Solutions}
+	\begin{proof}{\textbf{1}} From the definition of $+$ operation we have that\\
+		$(a_1, a_2, ..., a_n) + (b_1, b_2, ..., b_n) = (a_1+b_1, a_2+b_2, ..., a_n+b_n)$\\
+		$(b_1, b_2, ..., b_n) + (a_1, a_2, ..., a_n) = (b_1+a_1, b_2+a_2, ..., b_n+a_n)$\\
+		Since we proved the commutative law for words of length 1 we get that
+		$(b_1+a_1, b_2+a_2, ..., b_n+a_n) = (a_1+b_1, a_2+b_2, ..., a_n+b_n)$\\
+		Therefore $+$ operation is commutative on $\mathbb{B}^n$.
+	\end{proof}		
+	\begin{proof}{\textbf{2}} Checking the six remaining cases\\
+		$1+(0+1)=1+1=0=1+1=(1+0)+1$\\
+		$1+(0+0)=1+0=1=1+0=(1+0)+0$\\
+		$0+(1+1)=0+0=0=1+1=(0+1)+1$\\
+		$0+(1+0)=0+1=1=1+0=(0+1)+0$\\
+		$0+(0+1)=0+1=1=0+1=(0+0)+1$\\
+		$0+(0+0)=0+0=0=0+0=(0+0)+0$\\
+	\end{proof}
+	\begin{proof}{\textbf{3}}\\
+		$(a_1,a_2,...,a_n)+[(b_1,b_2,...,b_n)+(c_1,c_2,...,c_n)]=$\\
+		$=(a_1,a_2,...,a_n)+(b_1+c_1,b_2+c_2,...,b_n+c_n)=$\\
+		$=(a_1+(b_1+c_1),a_2+(b_2+c_2),...,a_n+(b_n+c_n)$ and\\
+		$[(a_1,a_2,...,a_n)+(b_1,b_2,...,b_n)]+(c_1,c_2,...,c_n)=$\\
+		$=(a_1+b_1,a_2+b_2,...,a_n+b_n)+(c_1,c_2,...,c_n)=$\\
+		$=((a_1+b_1)+c_1,(a_2+b_2)+c_2,...,(a_n+b_n)+c_n)$\\
+		because we proved the associative law for words of length 1 we get that\\
+		$((a_1+b_1)+c_1,(a_2+b_2)+c_2,...,(a_n+b_n)+c_n)=$\\
+		$=(a_1+(b_1+c_1),a_2+(b_2+c_2),...,a_n+(b_n+c_n)$
+	\end{proof}
+	\begin{proof}{\textbf{4}} We claim that the identity element is $(0,0,...,0)$ which means a word of length $n$ in which all elements are $0$.\\
+		So $(a_1, a_2, ..., a_n) + (0,0,..,0) = (a_1+0,a_2+0,...,a_n+0)$, where the digits $a_i$ are either $1$ or $0$, so if for a digit $a_i=1 \Rightarrow a_i+0=1+0=1=a_i$ and if $a_i=0 \Rightarrow a_i+0=0+0=0=a_i$ then $(a_1+0,a_2+0,...,a_n+0) = (a_1,a_2,...,a_n)$.\\
+	Therefore $(0,0,...,0)$ is the identity element.
+	\end{proof}
+	\begin{proof}{\textbf{5}} We claim that the inverse of a word $\bm{a}$ is itself.\\
+		So $(a_1, a_2, ..., a_n) + (a_1, a_2, ..., a_n) = (a_1+a_1, a_2+a_2,...,a_n+a_n)$, where the digits of $\bm{a}$, $a_i$ are either $0$ or $1$, so if $a_i=1 \Rightarrow a_i+a_i=1+1=0$ and if $a_i=0 \Rightarrow a_i+a_i=0+0=0$ then $(a_1+a_1, a_2+a_2,...,a_n+a_n)=(0,0,...,0)$.
+		Therefore $\bm{a}$ is its own inverse.
+	\end{proof}
+	\begin{proof}{\textbf{6}}
+		As we proved that for any word $\bm{a}$ its inverse is itself, meaning that $\bm{-a}=\bm{a}$, so $\bm{a}-\bm{b}=\bm{a}+(\bm{-b})=\bm{a}+\bm{b}$.
+	\end{proof}	
+	\begin{proof}{\textbf{7}}
+		Since $\bm{a}+\bm{b}=\bm{c}$ then $\bm{b}+\bm{c}=\bm{b}+(\bm{a}+\bm{b})$ using commutative and associative laws we have that $\bm{b}+(\bm{a}+\bm{b})=\bm{a}+(\bm{b}+\bm{b})$ since the inverse of $\bm{b}$ is itself then $\bm{a}+\bm{e}=\bm{a}$ where $\bm{e}$ is the identity element.
+	\end{proof}
+	\subsubsection*{Problem G}
+	To long to write it. Checkl the book.
+	\subsubsection*{Solutions}
+	\begin{proof}{\textbf{1}}\\
+		$00000 \Rightarrow a_4=0+0=0$ and $a_5=0+0+0=0$\\
+		$00111 \Rightarrow a_4=0+1=1$ and $a_5=0+0+1=1$\\
+		$01001 \Rightarrow a_4=0+0=0$ and $a_5=0+1+0=1$\\
+		$01110 \Rightarrow a_4=0+1=1$ and $a_5=0+1+1=0$\\
+		$10011 \Rightarrow a_4=1+0=1$ and $a_5=1+0+0=1$\\
+		$10100 \Rightarrow a_4=1+1=0$ and $a_5=1+0+1=0$\\
+		$11010 \Rightarrow a_4=1+0=1$ and $a_5=1+1+0=0$\\
+		$11101 \Rightarrow a_4=1+1=0$ and $a_5=1+1+1=1$\\
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		\begin{itemize}
+			\item [(a)] $C_2 = \{000000,001001,010111,011110,100011,101010,110100,111101\}$
+			\item [(b)] ${}$\\
+				\begin{adjustbox}{max width=\textwidth,center}
+				\begin{tabular}{l|llllllll}
+				 & 000000 & 001001 & 010111 & 011110 & 100011 & 101010 & 110100 & 111101 \\ \hline
+				000000 &  & 2 & 4 & 4 & 3 & 3 & 3 & 5 \\
+				001001 & 2 &  & 4 & 4 & 3 & 3 & 5 & 4 \\
+				010111 & 4 & 4 &  & 2 & 3 & 5 & 3 & 3 \\
+				011110 & 4 & 4 & 2 &  & 5 & 3 & 3 & 3 \\
+				100011 & 3 & 3 & 3 & 5 &  & 2 & 4 & 4 \\
+				101010 & 3 & 3 & 5 & 3 & 2 &  & 4 & 4 \\
+				110100 & 3 & 5 & 3 & 3 & 4 & 4 &  & 2 \\
+				111101 & 5 & 4 & 3 & 3 & 4 & 4 & 2 &  \\
+				\end{tabular}
+				\end{adjustbox}
+			\\\\As we can see from the table above the minimum distance of the $C_2$ code is $2$.
+			\item [(c)] Given that the minimum distance is 2 then 1 error in any codeword of $C_2$ is sure to be detected.
+		\end{itemize}
+	\end{proof}
+	\begin{proof}{\textbf{3}}
+		The designed code is $C=\{0000,0101,1011,1110\}$, with the following parity-check equations $a_3=a_1$ and $a_4=a_1+a_2$.\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+			& 0000 & 0101 & 1011 & 1110 \\ \hline
+			0000 &  & 2 & 3 & 3 \\
+			0101 & 2 &  & 3 & 3 \\
+			1011 & 3 & 3 &  & 2 \\
+			1110 & 3 & 3 & 2 & \\
+		\end{tabular}
+		\end{adjustbox}
+		\\\\From the above table we see that the minimum distance is 2.
+	\end{proof}
+	\begin{proof}{\textbf{4}}
+	To decode the words we compare each given word with $C_1$ words, as shown in the following table.\\\\
+	\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|lllllllll}
+			& 00000 & 00111 & 01001 & 01110 & 10011 & 10100 & 11010 & 11101 \\ \hline
+			11111 & 5 & 2 & 3 & 2 & 2 & 3 & 2 & 1 \\
+			00101 & 2 & 1 & 3 & 3 & 3 & 2 & 5 & 2 \\
+			11000 & 2 & 5 & 2 & 3 & 3 & 2 & 1 & 2 \\
+			10011 & 3 & 2 & 3 & 4 & 0 & 3 & 2 & 3 \\
+			10001 & 2 & 3 & 2 & 5 & 1 & 2 & 2 & 2 \\
+			10111 & 4 & 1 & 4 & 3 & 1 & 2 & 3 & 2 \\
+		\end{tabular}
+		\end{adjustbox}
+		\\\\ Then\\
+		11111 $\rightarrow$ 11101 \\
+		00101 $\rightarrow$ 00111 \\
+		11000 $\rightarrow$ 11010 \\
+		10011 $\rightarrow$ 10011 \\
+		10001 $\rightarrow$ 10011 \\
+		10111 $\rightarrow$ 00111 or 10011	
+	\end{proof}
+	\begin{proof}{\textbf{5}}
+		Given that to change a codeword into another we need $m$ digit changes, we can detect up to $m-1$ errors since any transmitted $m-1$ errors cannot change one codeword into another.	
+	\end{proof}
+	\begin{proof}{\textbf{6}}
+		Let $a_k$, $b_k$ and $x_k$ be the digits at position k-th of $\bm{a}$, $\bm{b}$ and $\bm{x}$ respectively.\\
+		If $x_k \neq a_k$ and $x_k \neq b_k$ then is clear that $a_k=b_k$, if $x_k = a_k$ and $x_k \neq b_k$ then $a_k \neq b_k$, if $x_k \neq a_k$ and $x_k = b_k$ then $a_k \neq b_k$ and finally if $x_k=a_k$, $x_k=b_k$ then $a_k=b_k$.\\
+		Then $\bm{a}$ differs from $\bm{b}$ in only those digits where $\bm{a}$ differs from $\bm{x}$ or $\bm{b}$ differs from $\bm{x}$. Since $\bm{a}$ differs from $\bm{x}$ in at most $t$ digits and $\bm{b}$ differs from $\bm{x}$ in at most $t$ digits then $\bm{a}$ can differ from $\bm{b}$ in at most $2t=m-1$ digits which is a contradiction since $\bm{a}$ and $\bm{b}$ are codewords and they differ by definition in at least $m$ digits.
+	\end{proof}
+	\begin{proof}{\textbf{7}}
+		If there are $t$ or fewer errors of transmission in a codeword, the received word will be decoded correctly since $t=\frac{(m-1)}{2} < m$
+	\end{proof}
+	\begin{proof}{\textbf{8}}
+		Given that the minimum distance of the code $C_2$ is $2$ then if $2$ errors are transmitted the word can be decoded to more than 1 codeword so we can detect that at least $2$ errors has happened. On the other hand since $m=2$ from \textbf{5} we can say that at least $m-1=1$ errors can be corrected.
+	\end{proof}
 \end{document}
