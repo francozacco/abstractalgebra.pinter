@@ -1,0 +1,366 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 4 - Elementary properties of groups}
+
+	\subsubsection*{Problem A}
+	Solve:
+	\begin{itemize}
+		\item [\textbf{1}] $axb = c$
+		\item [\textbf{2}] $x^2b = xa^{-1}c$
+		\item [\textbf{4}] $ax^2=b$ and $x^3=e$
+		\item [\textbf{5}] $x^2=a^2$ and $x^5=e$
+	\end{itemize}
+	\subsubsection*{Solutions}
+		\begin{proof}{\textbf{1}}
+			\begin{gather*}
+				axb=c \\
+				a^{-1}axb=a^{-1}c \\
+				exb=a^{-1}c \\
+				xb=a^{-1}c \\
+				xbb^{-1}=a^{-1}cb^{-1} \\
+				xe=a^{-1}cb^{-1} \\
+				x=a^{-1}cb^{-1}
+			\end{gather*}
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			\begin{gather*}
+				x^2b=xa^{-1}c \\
+				x^{-1}x^2b=x^{-1}xa^{-1}c \\
+				exb=ea^{-1}c \\
+				xb=a^{-1}c \\
+				xbb^{-1}=a^{-1}cb^{-1} \\
+				xe=a^{-1}cb^{-1} \\
+				x=a^{-1}cb^{-1}
+			\end{gather*}
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			\begin{gather*}
+				ax^2=b \\
+				a^{-1}ax^2=a^{-1}b \\
+				ex^2=a^{-1}b \\
+				x^2=a^{-1}b \\
+				\text{multiplying by }x \text{ both sides}\\
+				x^3=xa^{-1}b \\
+				\text{and since } x^3=e \text{ then}\\
+				xa^{-1}b=e \\
+				xa^{-1}bb^{-1}=eb^{-1} \\
+				xa^{-1}e=b^{-1} \\
+				xa^{-1}=b^{-1} \\
+				xa^{-1}a=b^{-1}a \\
+				xe=b^{-1}a \\
+				x=b^{-1}a			
+			\end{gather*}
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			\begin{gather*}
+				x^5=e \\
+				xx^2x^2=e \\
+				\text{and since } x^2=a^2 \text{ then}\\
+				xa^2a^2=e \\
+				xa^4=e \\
+				\text{by multiplying both sides with }(a^{-1})^4=a^{-4} \\
+				xe=a^{-4} \\
+				x=a^{-4}
+			\end{gather*}
+		\end{proof}
+\cleardoublepage
+	\subsubsection*{Problem B}
+		For each of the following rules, either prove that it is true in every group $G$, or give a counterexample to show that it is false in some groups.
+	\subsubsection*{Solutions}
+		In all the counterexamples I'm using the matrices group $G = \{I,A,B,C,D,K\}$ with the following table.\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllll}
+			$*$ & $I$ & $A$ & $B$ & $C$ & $D$ & $K$ \\ \hline
+			$I$ & $I$ & $A$ & $B$ & $C$ & $D$ & $K$ \\
+			$A$ & $A$ & $I$ & $C$ & $B$ & $K$ & $D$ \\
+			$B$ & $B$ & $K$ & $D$ & $A$ & $I$ & $C$ \\
+			$C$ & $C$ & $D$ & $K$ & $I$ & $A$ & $B$ \\
+			$D$ & $D$ & $C$ & $I$ & $K$ & $B$ & $A$ \\
+			$K$ & $K$ & $B$ & $A$ & $D$ & $C$ & $I$ \\
+		\end{tabular}
+		\end{adjustbox}
+		\begin{proof}{\textbf{1}}\\
+			Counterexample: Let $x=A$ and $A^2=I$ but $A \neq I$
+		\end{proof}
+		\begin{proof}{\textbf{2}}\\
+			Counterexample: $A^2=I=C^2$ but $A \neq C$
+		\end{proof}
+		\begin{proof}{\textbf{3}}\\
+			Counterexample: $(AB)^2=C^2=I$ on the other hand $A^2=I$ and $B^2=D$ then $A^2B^2=ID=D$ but $D \neq I$
+		\end{proof}
+		\begin{proof}{\textbf{4}}\\
+			$x^2=x$ then $x^2x^{-1}=xx^{-1}$ so $x=e$
+		\end{proof}
+		\begin{proof}{\textbf{5}}\\
+			Counterexample: For an $x=A$ there is no $y$ in $G$ such as $y^2=A$. This counterexample is easy to see in the operation table.
+		\end{proof}
+		\begin{proof}{\textbf{6}}\\
+			$xz=y \Rightarrow x^{-1}xz=x^{-1}y \Rightarrow z=x^{-1}y$ for this to hold, the element $x^{-1}$ must exists and by the definition of groups, every group must have an inverse element for an element $x$, so $x^{-1} \in G$ and we also know by definition that $y \in G$, therefore $z=x^{-1}y \in G$
+		\end{proof}
+\cleardoublepage
+	\subsubsection*{Solutions - Problem C}
+		\begin{proof}{\textbf{1}}
+			$a^{-1}b^{-1}=(ab)^{-1}=(ba)^{-1}=b^{-1}a^{-1}$
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			Since $ba=ab$ multiplying on the left by $b^{-1}$ we get $a=b^{-1}ab$ then by replacing in $ab^{-1}$ we get that $ab^{-1}=(b^{-1}ab)b^{-1}=b^{-1}a$
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			$a(ab)=a(ba)=(ab)a$
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			$ab=ba$ multiplying on the left by $a$ we get $a^2b=(ab)a$ and then by multiplying on the right by $b$ we get $a^2b^2=(ab)(ab)=(ba)(ba)=b(ab)a=b(ba)a=b^2a^2$
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			$(xax^{-1})(xbx^{-1})=xa(x^{-1}x)bx^{-1}=xabx^{-1}=xbax^{-1}=xbeax^{-1}=xbx^{-1}xax^{-1}=(xbx^{-1})(xax^{-1})$
+		\end{proof}
+		\begin{proof}{\textbf{6}}\\
+			$ba=ab $ multiplying on the right by $a^{-1}$ then $ baa^{-1}=aba^{-1}$ so $b=aba^{-1}$\\
+			$b=aba^{-1}$ multiplying on the right by $a$ then $ba=aba^{-1}a=ab$
+		\end{proof}
+		\begin{proof}{\textbf{7}}\\
+			$ba=ab$ multiplying on the right by $a^{-1}$ we get $baa^{-1}=aba^{-1}$ then $b=aba^{-1}$ and multiplying on the right by $b^{-1}$ we get that $bb^{-1}=aba^{-1}b^{-1}$ then $e=aba^{-1}b^{-1}$\\
+			$aba^{-1}b^{-1}=e$ multiplying on the right by $b$ we get that $aba^{-1}b^{-1}b=eb$ so $aba^{-1}=b$ multiplying on the right by $a$ then $aba^{-1}a=ba$ therefore $ab=ba$
+		\end{proof}
+	\subsubsection*{Solutions - Problem D}
+		\begin{proof}{\textbf{1}}
+			If $ab=e$ because of the Theorem 2, $b=a^{-1}$ multiplying on the right by $a$ then $ba=a^{-1}a$ therefore $ba=e$
+		\end{proof}
+		\begin{proof}{\textbf{2}}\\
+			Since $abc=e$ because of the Theorem 2, $ab=c^{-1}$ multiplying on the left by $c$ we get that $cab=cc^{-1}$ therefore $cab=e$\\
+			Since $abc=e$ because of the Theorem 2, $bc=a^{-1}$ multiplying on the right by $a$ we get that $bca=a^{-1}a$ therefore $bca=e$
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			If $xay=a^{-1}$ multiplying on the right by $a$ we get $xaya=a^{-1}a=e$ because of the Theorem 2, $aya=x^{-1}$ multiplying on the right by $x$ we get that $ayax=x^{-1}x=e$ and now multiplying on the left by $a^{-1}$ we get $a^{-1}ayax=a^{-1}e$ therefore $yax=a^{-1}$
+		\end{proof}
+		\begin{proof}{\textbf{8}}\\
+			$a=a^{-1}$ multiplying on the right by $a$ we get $aa=a^{-1}a$ therefore $a^2=e$\\
+			$a^2=aa=e$ multiplying on the right by $a^{-1}$ we get that $aaa^{-1}=ea^{-1}$ therefore $a=a^{-1}$
+		\end{proof}
+
+	\subsubsection*{Solutions - Problem E}		
+		\begin{proof}{\textbf{1}}
+			$S$ can be written as $S = \bigcup_{i=1}^n \{x_i, x_i^{-1}\}$ by pairing each element with its inverse, therefore there must be an even set of elements in $S$.
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			By definition $G$ can be written as $G = \{x \in G: x=x^{-1}\} \cup S$ where $S = \{x \in G: x \neq x^{-1}\}$.\\
+			If $G$ has an even set of numbers and it's known that $S$ has an even set of numbers, then for this to hold $\{x \in G: x=x^{-1}\}$ must have an even set of numbers.\\
+			On the other hand if $G$ has an odd set of numbers then for this to hold $\{x \in G: x=x^{-1}\}$ must have an odd set of numbers.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			Since the order of $G$ is even then the order of $\{x \in G: x=x^{-1}\}$ is even, on the other hand, since $e=e^{-1}$ is not in $S$ then the order of $\{x \in G: x \neq e \land x=x^{-1}\}$ is odd, therefore it has at least one element.
+		\end{proof}	
+		\begin{proof}{\textbf{4}}
+			By definition $G = \{e\} \cup \{x \in G:x \neq e $ and $ x=x^{-1}\} \cup S$ since $G$ is Abelian we can solve $(a_1a_2...a_n)^2$ separately and then multiply each result. Let $T=\{x \in G:x \neq e $ and $ x=x^{-1}\}$\\
+			The set $T$ can be rearranged as \\$\displaystyle (a_1a_2...a_m)^2=\prod_{i=1}^{m} a_ia_i=e$ where $m$ is the order of $T$.\\
+			The set $S$ can be rearranged so each element is multiplied by its inverse, then $\displaystyle (a_1a_2...a_k)^2=\prod_{i=1}^{k} a_ia_i^{-1}=e$ where $k$ is the order of $S$.\\
+			Finally we see that $(a_1a_2...a_n)^2=(a_1a_2...a_m)^2(a_1a_2...a_k)^2=ee=e$´
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			If there is no element $x \neq e$ in $G$ such that $x=x^{-1}$ then $G=S$ then the product can be rearranged as $\displaystyle a_1a_2...a_n=\prod_{i=1}^{n/2} a_ia_i^{-1}=e$.
+		\end{proof}
+		\begin{proof}{\textbf{6}}
+			If there is exactly one $x \neq e$ in $G$ such that $x=x^{-1}$ then\\ $\displaystyle G=S \cup \{x\}$ and since $G$ is an Abelian group we can solve separately for each set, so for $S$ we saw that $a_1a_2...a_m=e$, where $m$ is the order of $S$, then $a_1a_2...a_n=a_1a_2...a_mx=ex=x$  
+		\end{proof}
+\cleardoublepage
+	\subsubsection*{Solutions - Problem F}
+		\begin{proof}{\textbf{1}}
+			\begin{itemize}
+				\item[(a)] If $a^2=a$ then multiplying on the right by $a^{-1}$ we get $aaa^{-1}=aa^{-1}$ therefore $a=e$.
+				\item[(b)] If $ab=a$ then multiplying on the left by $a^{-1}$ we get $a^{-1}ab=a^{-1}a$ therefore $b=e$
+				\item[(c)] If $ab=b$ then multiplying on the right by $b^{-1}$ we get $abb^{-1}=bb^{-1}$ therefore $a=e$
+			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			Let $a, x, y_1, y_2$ be different elements of $G$, respecting the following table\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|lllll}
+				  & $...$ & $y_1$ & $...$ & $y_2$ & $...$ \\ \hline
+				$\vdots$ &  & $\vdots$ &  & $\vdots$ & \\
+				$a$ & $...$ & $x$ & $...$ & $x$ &  \\
+			\end{tabular}
+			\end{adjustbox}
+		\\\\So $ay_1=x$ and $ay_2=x$ then $ay_1=ay_2$ multiplying on the left by $a^{-1}$ we get $a^{-1}ay_1=a^{-1}ay_2$ then $y_1=y_2$ which is a contradiction then $x$ cannot be twice in a row.\\
+		Now, let $x$ not being in a row then since the row must have $n$ elements, where $n$ is the order of $G$, since $x$ is not in the row then we have $n-1$ elements to complete the row, so another element $y \in G$ must be twice in the row, but we saw that it's not possible. Therefore $x$ must be once in the row.\\
+		Therefore every row of a group table must contain each element of the group exactly once.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			Since the first row and column are fixed because of the identity element, the only way of completing the table without repeating the values in each column is as follows\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|lll}
+				  & $e$ & $a$ & $b$ \\ \hline
+				$e$ & $e$ & $a$ & $b$ \\
+				$a$ & $a$ & $b$ & $e$ \\
+				$b$ & $b$ & $e$ & $a$ \\
+			\end{tabular}
+			\end{adjustbox}
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{4}}
+			As we noticed before the first row and column are fixed because of the identity element, also because of the added property that $xx=e$ for every $x \in G$ then the diagonal of the table is filled with the $e$ element.\\
+			For the row $a$ column $b$ we also saw that if $ab=b$ then $a=e$ but $a \neq e$ so must be that $ab=c$. The same can be applied to fill the remaining places.\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llll}
+				  & $e$ & $a$ & $b$ & $c$ \\ \hline
+				$e$ & $e$ & $a$ & $b$ & $c$\\
+				$a$ & $a$ & $e$ & $c$ & $b$ \\
+				$b$ & $b$ & $c$ & $e$ & $a$ \\
+				$c$ & $c$ & $b$ & $a$ & $e$ \\
+			\end{tabular}
+			\end{adjustbox}
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			In this case since we have two added properties $aa=e$ and $bb \neq e$ then in row and column $a$ we must place $e$, the other $e$ element must be placed in the last column $c$, so every element appear only once in each row/column and the property $bb \neq e$ holds. The rest of the table can be filled by avoiding repeated elements in each row/column.\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llll}
+				    & $e$ & $a$ & $b$ & $c$ \\ \hline
+				$e$ & $e$ & $a$ & $b$ & $c$\\
+				$a$ & $a$ & $e$ & $c$ & $b$ \\
+				$b$ & $b$ & $c$ & $a$ & $e$ \\
+				$c$ & $c$ & $b$ & $e$ & $a$ \\
+			\end{tabular}
+			\end{adjustbox}
+		\end{proof}
+		\begin{proof}{\textbf{6}}
+			The order of $G$ is 4, which is an even number, so the set $\{x \in G: x=x^{-1}\}$ has an even order too, then there are two posibilities, the 4 elements are it's own inverse or 2 of the elements are it's own inverse, which are the two options shown before.
+		\end{proof}
+
+\cleardoublepage
+	\subsubsection*{Solutions - Problem G}
+		\begin{proof}{\textbf{1}} $G \times H$ is a group.
+			\begin{itemize}
+				\item[(G1)] Association.\\
+				$(x_1,y_1)[(x_2,y_2)(x_3,y_3)]=(x_1,y_1)(x_2x_3,y_2y_3)=(x_1x_2x_3,y_1y_2y_3)$\\
+				$[(x_1,y_1)(x_2,y_2)](x_3,y_3)=(x_1x_2,y_1y_2)(x_3,y_3)=(x_1x_2x_3,y_1y_2y_3)$\\
+				\item[(G2)] Identity element.\\
+				Let $(e_G, e_H)$ be the identity element, where $e_G$ is the identity element of $G$ and $e_H$ is the identity element of $H$ then\\
+				$(x,y)(e_G,e_H)=(xe_G,ye_H)=(x,y)$
+				\item[(G3)] Inverse element.\\
+				Let $(x^{-1},y^{-1})$ be the inverse element of element $(x,y)$, where $x^{-1}$ is the inverse element of $x$ in $G$ and $y^{-1}$ is the inverse element of $y$ in $H$ then $(x,y)(x^{-1},y^{-1}) = (xx^{-1}, yy^{-1})=(e_G, e_H)$	
+			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			$\mathbb{Z}_2 \times \mathbb{Z}_3 = \{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}$\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llllll}
+				   +    & $(0,0)$ & $(0,1)$ & $(0,2)$ & $(1,0)$ & $(1,1)$ & $(1,2)$ \\ \hline
+				$(0,0)$ & $(0,0)$ & $(0,1)$ & $(0,2)$ & $(1,0)$ & $(1,1)$ & $(1,2)$ \\
+				$(0,1)$ & $(0,1)$ & $(0,2)$ & $(0,0)$ & $(1,1)$ & $(1,2)$ & $(1,0)$ \\
+				$(0,2)$ & $(0,2)$ & $(0,0)$ & $(0,1)$ & $(1,2)$ & $(1,0)$ & $(1,1)$ \\
+				$(1,0)$ & $(1,0)$ & $(1,1)$ & $(1,2)$ & $(0,0)$ & $(0,1)$ & $(0,2)$ \\
+				$(1,1)$ & $(1,1)$ & $(1,2)$ & $(1,0)$ & $(0,1)$ & $(0,2)$ & $(0,0)$ \\
+				$(1,2)$ & $(1,2)$ & $(1,0)$ & $(1,1)$ & $(0,2)$ & $(0,0)$ & $(0,1)$ \\
+			\end{tabular}
+			\end{adjustbox}
+		\end{proof}
+		\begin{proof}{\textbf{3}} Let $x_1,x_2 \in G$ and $y_1,y_2 \in H$, then
+			\begin{align*}
+				 (x_1, y_1)(x_2, y_2) & = (x_1x_2, y_1y_2) \\
+					& = (x_2x_1, y_2y_1) \text{ since } G \text{ and } H \text{ are Abelian} \\
+					& = (x_2,y_2)(x_1,y_1)
+			\end{align*}
+		\end{proof}
+		\begin{proof}{\textbf{4}} Let $x \in G$ and $y \in H$ then
+			\begin{align*}
+				(x,y)(x,y) & = (xx,yy) \\
+				 & = (e_G, e_H) \text{ since in } G \text{ and } H \text{ all elements are  its own inverses}			 
+			\end{align*}
+			Since $(e_G, e_H)$ is the inverse element of $G \times H$, then each element in $G \times H$ is its own inverse.
+		\end{proof}
+\cleardoublepage
+	\subsubsection*{Solutions - Problem H}
+		\begin{proof}{\textbf{1}}
+			Let $A$ consist of all the positive integers $n$ for which $(bab^{-1})^n = ba^{n}b^{-1}$ is true.\\
+			Then 1 is in $A$ because
+				\begin{align*}
+					(bab^{-1})^1 = bab^{-1} = ba^1b^{-1}
+				\end{align*}
+			Now let $k$ be any positive integer in $A$, we must show that $k+1$ is also in $A$. Saying that $k$ is in $A$ means that
+				\begin{align*}
+					(bab^{-1})^k = ba^{k}b^{-1}
+				\end{align*}
+			Multiplying by $bab^{-1}$ both sides of the equation we have that
+				\begin{align*}
+					(bab^{-1})(bab^{-1})^k & = (bab^{-1})(ba^{k}b^{-1})\\
+					(bab^{-1})^{k+1} & = ba(b^{-1}b)a^{k}b^{-1} \\
+					& = baa^{k}b^{-1} \\
+					& = ba^{k+1}b^{-1}
+				\end{align*}
+			From this last equation we see that $k+1 \in A$.\\
+			So by the principle of mathematical induction, all positive integers are in $A$. Therefore $(bab^{-1})^n = ba^{n}b^{-1}$ is true for every positive integer.
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			If $a^{3}=e$ then multiplying on the right by $a^{-1}$ we get that \\ $a^{3}a^{-1} =a^{-1}$ then $a^2=a^{-1}$.\\
+			Multiplying on the right by $a^{-1}$ again we get that $a^{2}a^{-1} = a^{-1}a^{-1}$ then $a=(a^{-1})^{2}$. Therefore $a$ has a square root.
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			If $a^{2}=e$ then by multipying on the right by $a$ we get that $a^{3} = a$. Therefore $a$ has a cube root.
+		\end{proof}
+		\begin{proof}{\textbf{6}}
+			If $a^{-1}$ has a cube root then
+			\begin{align*}
+				a^{-1} & = z^3 \\
+				aa^{-1} & = az^{3} \text{ multiplying by }a \text{ both sides }\\
+				e & = az^{3} \\ 
+				z^{-1} & = a z^{3}z^{-1} \text{ multiplying by } z^{-1} \text{ both sides }\\
+				z^{-1} & = az^2 \\
+				z^{-1}z^{-1} & = az^2z^{-1} \text{ multiplying by } z^{-1} \text{ both sides }\\
+				(z^{-1})^{2} & = az \\
+				(z^{-1})^{2}z^{-1} & = azz^{-1} \text{ multiplying by } z^{-1} \text{ both sides }\\
+				(z^{-1})^{3} & = a
+			\end{align*}
+			Therefore $a$ has a cube root too.
+		\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
