@@ -1,0 +1,438 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 5 - Subgroups}
+
+	\subsubsection*{Solutions - Problem A}
+	\begin{proof}{\textbf{1}}
+		Given that $G = \langle \mathbb{R}, + \rangle$, we want to check if \\
+		$H = \{log(a): a \in \mathbb{Q}, a > 0\}$ is a subgroup. So
+		\begin{itemize}
+			\item[(i)] If $log(a)$ and $log(b)$ in $H$ then $log(a)+log(b) = log(ab)$ because of the properties of the logarithm since $a,b \in \mathbb{Q}$ and $a,b > 0$ then $ab \in \mathbb{Q}$ and $ab > 0$. Therefore $log(ab) \in H$
+			\item[(ii)] If $x=log(a) \in H$ then $-x = log(1/a)$ where $1/a \in \mathbb{Q}$ and $1/a > 0$. Therefore $log(1/a) \in H$
+		\end{itemize}
+		Since $H$ is closed with respect to addition and negatives, then it's a subgroup of $G$
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		If $n=2$ then $x=log(2) \in H$ since $2 \in \mathbb{Z}$ and $2 > 0$ so for $H$ to be closed under negatives $-x=log(1/2)$ should be in $H$, but $1/2 \notin \mathbb{Z}$. Therefore $H$ is not a subgroup of $G$
+	\end{proof}
+	\begin{proof}{\textbf{4}}
+		Given that $G = \langle \mathbb{R}^{*}, \cdot \rangle$ we want to check if \\
+		$H = \{2^{n}3^{m}: m,n \in \mathbb{Z}\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] If $2^{n}3^{m}$ and $2^{l}3^{k}$ are in $H$ with $n,m,l,k \in \mathbb{Z}$ then\\
+			$2^{n}3^{m}2^{l}3^{k} = 2^{n}2^{l}3^{m}3^{k} = 2^{n+l}3^{m+k}$ since $n+l \in \mathbb{Z}$ and $m+k \in \mathbb{Z}$. Therefore $2^{n+l}3^{m+k} \in H$
+			\item[(ii)] If $2^{n}3^{m} \in H$ then $1/(2^{n}3^{m}) = 2^{-n}3^{-m}$ and since $-n,-m \in \mathbb{Z}$ then $2^{-n}3^{-m} \in H$
+		\end{itemize}
+		Since $H$ is closed with respect to multiplication and to inverses, then it's a subgroup of $G$
+	\end{proof}
+
+\cleardoublepage
+	\begin{proof}{\textbf{5}}
+		Given that $G = \langle \mathbb{R} \times \mathbb{R}, + \rangle$ we want to check if \\
+		$H = \{(x,y): y=2x\}$ is a subgroup of $G$. The formulation of $H$ is equivalent to $H = \{(x,2x): x \in \mathbb{R}\}$. So
+		\begin{itemize}
+			\item[(i)] If $x=1 \in \mathbb{R}$ then $(x,2x) = (1,2)$ and since $2 \in \mathbb{R}$ then $(1,2) \in H$. Therefore $H$ is nonempty.
+			\item[(ii)] If $p,q \in \mathbb{R}$ then $(p,2p) \in H$ and $(q,2q) \in H$, so $p+q \in \mathbb{R}$ and $2p+2q=2(p+q) \in \mathbb{R}$ since $R$ is closed with respect to addition and multiplication, then $(p+q,2(p+q)) \in H$. Therefore $H$ is closed with respect to addition.
+			\item[(iii)] If $p \in \mathbb{R}$ then $-p \in \mathbb{R}$ and $2(-p) \in \mathbb{R}$ because $\mathbb{R}$ is closed with respect to multiplication then $(-p, 2(-p)) \in H$. Therefore $H$ is closed with respect to negatives.
+		\end{itemize}
+	Since $H$ is closed with respect to addition and negatives, then it's a subgroup of $G$.
+	\end{proof}
+
+\cleardoublepage
+	\subsubsection*{Solutions - Problem B}
+	\begin{proof}{\textbf{1}}
+		Given that $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$ we want to check if \\
+		$H = \{f \in \mathscr{F}(\mathbb{R}): f(x) = 0$ for every $x \in [0,1]\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] If
+				$f(x) = \begin{cases}
+					0 \text{ if } x \in [0,1] \\
+					1 \text{ elsewhere}					
+				\end{cases}$
+				then $f \in H$. Therefore $H$ is nonempty.
+			\item[(ii)] Let $f,g \in H$ then $(f+g)(x) = f(x) + g(x)$ if $x \in [0,1]$ then $f(x)+g(x)= 0+0 = 0$, otherwise, since $f(x),g(x) \in \mathbb{R}$ then $f(x)+g(x) \in \mathbb{R}$ because $\mathbb{R}$ is closed with respect of addition. Then $f+g \in H$.
+			\item[(iii)] Let $f \in H$ so $(-f)(x)=-f(x)$, if $x \in [0,1]$ then $-f(x) =-0=0$, otherwise, $-f(x) \in \mathbb{R}$ since $\mathbb{R}$ is closed with respect to negatives. Then $-f \in H$.
+		\end{itemize}
+		Since $H$ is nonempty and closed with respect to addition and negatives, then it's a subgroup of $G$.
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		Given that $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$ we want to check if \\
+		$H = \{f \in \mathscr{F}(\mathbb{R}): f(-x) = -f(x)\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] Let $f(x)=sin(x)$ then $-sin(x)=sin(-x)$ so $-f(x)=f(-x)$. Therefore $H$ is nonempty.
+			\item[(ii)] Let $f,g \in H$ then $-(f+g)(x)=-(f(x)+g(x))=-f(x)-g(x)$. Because $\mathbb{R}$ is closed with respect to addition and negatives then $-f(x)-g(x) \in \mathbb{R}$ and since $f,g \in H$ then $-f(x)-g(x)=f(-x)+g(-x)$ and finally $f(-x)+g(-x)=(f+g)(-x)$. Therefore $f+g \in H$.
+			\item[(iii)] Let $f \in H$ then $f(-x)=-f(x)$ multiplying both side by $-1$ we get that $-f(-x)=-(-f)(x)$ and we know that $-f(x) \in \mathbb{R}$ because $\mathbb{R}$ is closed with respect to negatives. Therefore $-f \in H$.
+		\end{itemize}
+		Since $H$ is nonempty and closed with respect to addition and negatives, then it's a subgroup of $G$.
+	\end{proof}
+
+\cleardoublepage
+	\subsubsection*{Solutions - Problem C}
+	\begin{proof}{\textbf{1}}
+		We want to check if $H = \{x \in G: x=x^{-1}\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] Since $G$ is a group then $e \in G$, the identity element, we know that $e=e^{-1}$ then $e \in H$ and $H$ is nonempty.
+			\item[(ii)] Let $a,b \in H$ then $ab=a^{-1}b^{-1}$, and we know that $a^{-1}b^{-1}=(ba)^{-1}$ since $ba \in G$ and $G$ is Abelian, then $a^{-1}b^{-1}=(ba)^{-1}=(ab)^{-1}$. Therefore $ab \in H$.
+			\item[(iii)] Let $a \in H$, then $a=a^{-1}$ and thus $a^{-1}=(a^{-1})^{-1}$, so it must follow that $a^{-1} \in H$.
+		\end{itemize}
+		Since $H$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G$.
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		We want to check if $H = \{x \in G: x^{n}=e\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] Since $G$ is a group then $e \in G$, where $e$ is the identity element, and since $ee=e$ then $e^{n}=e$ so $e \in H$ and $H$ is nonempty.
+			\item[(ii)] Let $a,b \in H$ then $a^{n}b^{n}=ee=e$, and we know that $a^{n}b^{n}=(ab)^{n}$ since $ab \in G$ then $a^{n}b^{n}=(ab)^{n}=e$. Therefore $ab \in H$.
+			\item[(iii)] Let $a \in H$, then $a^{n}=e$ and by multiplying on the left both sides by $a^{-1}$ we get that $a^{-1}a^{n}=a^{-1}e$ then $a^{n-1}=a^{-1}$ repeating this operation $n-1$ times we get that $e=(a^{-1})^{n}$ since $a^{-1} \in G$ therefore $a^{-1} \in H$.
+		\end{itemize}
+		Since $H$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G$.
+	\end{proof}
+	\begin{proof}{\textbf{6}}
+		We want to check if $HK = \{xy : x \in H \text{ and }x \in K\}$ is a subgroup of $G$ where $H \text{ and } K$ are subgroups of $G$. So
+		\begin{itemize}
+			\item[(i)] Since $H \text{ and } K$ are subgroups of $G$ then $H \text{ and } K$ are a group too. So $e \in H$ and $e \in K$, where $e$ is the identity element, then $ee=e \in HK$ and $HK$ is nonempty.
+			\item[(ii)] Let $ab, cd \in HK$ where $a,c \in H \text{ and } b,d \in K$, so $abcd=acbd$ since $H \text{ and } K$ are subgroups of $G$ which is Abelian. Then $ac \in H$ and $bd \in K$ because they are groups and closed with respect to multiplication. Therefore $abcd \in HK$.
+			\item[(iii)] Since $H$ and $K$ are groups, for elements $a,b$ which are in $H$ and $K$ respectively, we have that $a^{-1} \in H$ and $b^{-1} \in K$, then $a^{-1}b^{-1}=(ba)^{-1}$ and since $H$ and $K$ are subgroups of $G$ which is Abelian, we have that $(ba)^{-1}=(ab)^{-1}$. Therefore $(ab)^{-1} \in HK$.
+		\end{itemize}
+		Since $HK$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G$.
+	\end{proof}
+\cleardoublepage
+	\subsubsection*{Solutions - Problem D}
+	\begin{proof}{\textbf{1}}
+		We want to check if $H \cap K$ is a subgroup of $G$ where $H \text{ and } K$ are subgroups of $G$. So
+		\begin{itemize}
+			\item[(i)] Since $e \in H$ and $e \in K$ then $e \in H \cap K$. Therefore $H \cap K$ is nonempty.
+			\item[(ii)] Let $a,b \in H \cap K$, then $a,b \in H$ and $a,b \in K$, since $H$ and $K$ are subgroups of $G$ then $ab \in H$ and $ab \in K$. Therefore $ab \in H \cap K$.
+			\item[(iii)] Let $a \in H \cap K$ then $a \in H$ and $a \in K$, since they are groups $a^{-1}$ must be in $H$ and $K$. Therefore $a^{-1} \in H \cap K$.
+		\end{itemize}
+		Since $H \cap K$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G$.
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		We want to check if $H$ is a subgroup of $K$ given that $H$ and $K$ are subgroups of $G$ and $H \subseteq K$. So
+		\begin{itemize}
+			\item[(i)] Since $e \in H$ and $e \in K$ because they are groups then $H$ is nonempty.
+			\item[(ii)] Let $a,b \in H$ since $H$ is a subgroup of $G$ then $ab \in H$.
+			\item[(iii)] Let $a \in H $ then $a^{-1} \in H$ because $H$ is a group.
+		\end{itemize}
+		Since $H$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $K$.
+	\end{proof}
+	\begin{proof}{\textbf{3}}
+		We want to check if $C=\{a \in G: ax=xa \text{ for every } x \in G\}$ is a subgroup of $G$. So
+		\begin{itemize}
+			\item[(i)] Since $e \in G$ and $ea=ae$ then $e \in C$ and $C$ is nonempty.
+			\item[(ii)] Let $a,b \in C$ since $a,b,x \in G$ and $G$ is closed with respect to multiplication then $abx \in G$ and $abx=axb=xab$ because $a$ and $b$ commutes. Therefore $ab \in C$.
+			\item[(iii)] Let $a \in C$ since $a \in G$ then $a^{-1} \in G$ because $G$ is a group, then
+			\begin{align*}
+				ax & =xa  \\
+				a^{-1}ax & = a^{-1}xa \text{ multiplying by }a^{-1} \text{ on the left}\\
+				x & = a^{-1}xa \\
+				xa^{-1} & = a^{-1}xaa^{-1} \text{ multiplying by }a^{-1} \text{ on the right}\\
+				xa^{-1} & = a^{-1}x
+			\end{align*}
+			Therefore $a^{-1} \in C$.
+		\end{itemize}
+		Since $C$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G$.
+	\end{proof}
+
+\cleardoublepage
+	\begin{proof}{\textbf{8 - (a)}}
+		We want to check if $K=\{(x,e): x \in G\}$ is a subgroup of $G \times H$. So
+		\begin{itemize}
+			\item[(i)] Since $G$ is a group $e \in G$ then $(e,e) \in K$. Therefore $K$ is nonempty.
+			\item[(ii)] Let $(x,e)$ and $(y,e)$ be elements of $K$ then $(x,e)(y,e)=(xy,ee)=(xy,e)$, since $x,y \in G$ and $G$ is closed with respect to multiplication then $xy \in G$. Therefore $(xy,e) \in K$.
+			\item[(iii)] Let $(x,e) \in K$ since $x \in G$ and $G$ is a group then $x^{-1} \in G$. Therefore $(x^{-1},e) \in K$.
+		\end{itemize}
+	Since $K$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G \times H$.
+	\end{proof}
+	\begin{proof}{\textbf{8 - (b)}}
+		We want to check if $K=\{(x,x): x \in G\}$ is a subgroup of $G \times G$. So
+		\begin{itemize}
+			\item[(i)] Since $G$ is a group $e \in G$ then $(e,e) \in K$. Therefore $K$ is nonempty.
+			\item[(ii)] Let $(x,x)$ and $(y,y)$ be elements of $K$ then $(x,x)(y,y)=(xy,xy)$, since $x,y \in G$ and $G$ is closed with respect to multiplication then $xy \in G$. Therefore $(xy,xy) \in K$.
+			\item[(iii)] Let $(x,x) \in K$ since $x \in G$ and $G$ is a group then $x^{-1} \in G$. Therefore $(x^{-1},x^{-1}) \in K$.
+		\end{itemize}
+	Since $K$ is nonempty and closed with respect to multiplication and inverses, then it's a subgroup of $G \times G$.
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem E}
+	\begin{proof}{\textbf{1}} All the cyclic subgroups of $\langle \mathbb{Z}_{10}, + \rangle$ are:
+		\begin{align*}
+			&\{0\}\\
+			&\{0,5\}\\
+			&\{0,2,4,6,8\}\\
+			&\{0,1,2,3,4,5,6,7,8,9\}=\mathbb{Z}_{10} 
+		\end{align*}
+	\end{proof}
+
+	\begin{proof}{\textbf{2}}
+		Lets observe that $(2+2+2+5)\text{ mod }10 = 1$ so from there we see that we can generate $\mathbb{Z}_{10}$ by using $1$ as a generator. Therefore we can generate $\mathbb{Z}_{10}$ with $2$ and $5$.
+	\end{proof}
+	\begin{proof}{\textbf{3}}
+		This subgroup is $\{0,3,6,9\}$ 
+	\end{proof}
+	\begin{proof}{\textbf{4}}
+		Since $15 - 10 = 5$ then this subgroup can be written as\\ $\{5n: n \in \mathbb{Z}\}$
+	\end{proof}
+	\begin{proof}{\textbf{5}}
+		Since $5+5+5-7-7 = 1$ and we can generate every integer with $1$ and its inverse $-1$, then $\mathbb{Z}$ can be generated with $5$ and $7$.
+	\end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{6}}\\
+		$\mathbb{Z}_2 \times \mathbb{Z}_3$ is given by $\{(0,0), (0,1), (0,2), (1,0), (1,1), (1,2)\}$ if we take $a=(1,1)$ then we can write $\mathbb{Z}_2 \times \mathbb{Z}_3$ as $\{e, 4a, 2a, 3a, a, 5a\}$ with the same order as before. Since $a$ is the generator then $\mathbb{Z}_2 \times \mathbb{Z}_3$ is a cyclic group.\\
+		$\mathbb{Z}_3 \times \mathbb{Z}_4$ is given by $\{(0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (1,2), (1,3), (2,0), (2,1), (2,2), (2,3)\}$, if we take $a=(1,1)$ then we can write $\mathbb{Z}_3 \times \mathbb{Z}_4$ as $\{e, 9a, 6a, 3a, 4a, a, 10a, 7a, 8a, 5a, 2a, 11a\}$ with the same order as before. Since $a$ is the generator then $\mathbb{Z}_3 \times \mathbb{Z}_4$ is a cyclic group.
+	\end{proof}
+	\begin{proof}{\textbf{7}}
+		We want to check if some element of $\mathbb{Z}_2 \times \mathbb{Z}_4$ generates it, we avoid checking $(0,0)$ because it's the identity element so it's clear we cannot generate the group from it. So we check the following
+		\begin{itemize}
+			\item $(0,1)$
+				\begin{itemize}
+					\item[] $(0,1)+(0,1) = (0,2)$
+					\item[] $(0,1)+(0,1)+(0,1) = (0,3)$
+					\item[] $(0,1)+(0,1)+(0,1)+(0,1) = (0,0)$
+				\end{itemize}
+			From here we cannot keep generating the elements of $\mathbb{Z}_2 \times \mathbb{Z}_4$. Whenever we hit the $(0,0)$ we cannot generate the following elements of the group.
+			\item $(0,2)$
+				\begin{itemize}
+					\item[] $(0,2)+(0,2) = (0,0)$
+				\end{itemize}
+			\item $(0,3)$
+				\begin{itemize}
+					\item[] $(0,3)+(0,3) = (0,2)$
+					\item[] $(0,3)+(0,3)+(0,3) = (0,1)$					
+					\item[] $(0,3)+(0,3)+(0,3)+(0,3) = (0,0)$
+				\end{itemize}
+			\item $(1,0)$
+				\begin{itemize}
+					\item[] $(1,0)+(1,0) = (0,0)$
+				\end{itemize}
+			\item $(1,1)$
+				\begin{itemize}
+					\item[] $(1,1)+(1,1) = (0,2)$
+					\item[] $(1,1)+(1,1)+(1,1) = (1,3)$
+					\item[] $(1,1)+(1,1)+(1,1)+(1,1) = (0,0)$
+				\end{itemize}
+			\item $(1,2)$
+				\begin{itemize}
+					\item[] $(1,2)+(1,2) = (0,0)$
+				\end{itemize}
+			\item $(1,3)$
+				\begin{itemize}
+					\item[] $(1,3)+(1,3) = (0,2)$
+					\item[] $(1,3)+(1,3)+(1,3) = (1,1)$
+					\item[] $(1,3)+(1,3)+(1,3)+(1,3) = (0,0)$
+				\end{itemize}
+		\end{itemize}
+		Therefore $\mathbb{Z}_2 \times \mathbb{Z}_4$ is not a cyclic group.
+	\end{proof}
+	\begin{proof}{\textbf{8}}
+		Given that $G$ is generated by $a$ and $b$ then every element in $G$ can be written in a general form as $a^{n}b^{m}$ where $n,m \in \mathbb{Z}$, so $a^{n}b^{m}=a^{n-1}abb^{m-1}$ but since $ab=ba$ then $a^{n-1}bab^{m-1}$, we can do this again to obtain $a^{n-2}ababb^{m-2}=a^{n-2}babab^{m-2}=a^{n-2}bbaab^{m-2}$. If we keep doing so we have that $a^{n}b^{m}=b^{m}a^{n}$. Therefore $G$ is Abelian.
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem F}
+	\begin{proof}{\textbf{1}}
+		The table for the group $G$ is\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllll}
+			    & $e$ & $a$ & $b$ & $b^{2}$ & $ab$ & $ab^{2}$ \\ \hline
+			$e$ & $e$ & $a$ & $b$ & $b^{2}$ & $ab$ & $ab^{2}$ \\
+			$a$ & $a$ & $e$ & $ab$ & $ab^{2}$ & $b$ & $b^{2}$ \\
+			$b$ & $b$ & $ab^{2}$ & $b^{2}$ & $e$ & $a$ & $ab$ \\			
+			$b^{2}$ & $b^{2}$ & $ab$ & $e$ & $b$ & $ab^{2}$ & $a$ \\
+		    $ab$ & $ab$ & $b^{2}$ & $ab^{2}$ & $a$ & $e$ & $b$ \\
+	        $ab^{2}$ & $ab^{2}$ & $b$ & $a$ & $ab$ & $b^{2}$ & $e$
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem G}
+	\begin{proof}{\textbf{1}}\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+			    & $e$ & $a$ & $b$ & $ab$ \\ \hline
+			$e$ & $e$ & $a$ & $b$ & $ab$ \\
+			$a$ & $a$ & $e$ & $ab$ & $b$ \\
+			$b$ & $b$ & $ab$ & $e$ & $a$ \\			
+			$ab$ & $ab$ & $b$ & $a$ & $e$ \\
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+	\begin{proof}{\textbf{2}}\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllll}
+			    & $e$ & $a$ & $b$ & $ab$ & $ba$ & $aba$ \\ \hline
+			$e$ & $e$ & $a$ & $b$ & $ab$ & $ab$ & $aba$ \\
+			$a$ & $a$ & $e$ & $ab$ & $b$ & $aba$ & $ba$ \\
+			$b$ & $b$ & $ba$ & $e$ & $aba$ & $a$ & $ab$ \\			
+			$ab$ & $ab$ & $aba$ & $a$ & $ba$ & $e$ & $b$ \\
+			$ba$ & $ba$ & $b$ & $aba$ & $e$ & $ab$ & $a$ \\
+			$aba$ & $aba$ & $ab$ & $ba$ & $a$ & $b$ & $e$ \\
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{3}}\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllllll}
+			    & $e$ & $a$ & $ab$ & $aba$ & $abab$ & $bab$ & $ba$ & $b$ \\ \hline
+			$e$ & $e$ & $a$ & $ab$ & $aba$ & $abab$ & $bab$ & $ba$ & $b$ \\ 
+			$a$ & $a$ & $e$ & $b$  & $ba$ & $bab$ & $abab$ & $aba$ & $ab$ \\
+		   $ab$ & $ab$ & $aba$ & $abab$ & $bab$ & $ba$ & $b$ & $e$ & $a$ \\			
+		  $aba$ & $aba$ & $ab$ & $a$ & $e$ & $b$ & $ba$ & $bab$ & $abab$ \\
+		 $abab$ & $abab$ & $bab$ & $ba$ & $b$ & $e$ & $a$ & $ab$ & $aba$ \\
+		  $bab$ & $bab$ & $abab$ & $aba$ & $ab$ & $a$ & $e$ & $b$ & $ba$ \\
+		   $ba$ & $ba$ & $b$ & $e$ & $a$ & $ab$ & $aba$ & $abab$ & $bab$\\
+		    $b$ & $b$ & $ba$ & $bab$ & $abab$ & $aba$ & $ab$ & $a$ & $e$\\
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+	\begin{proof}{\textbf{4}}\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllllll}
+			    & $e$ & $b$ & $b^{2}$ & $b^{3}$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ \\ \hline
+			$e$ & $e$ & $b$ & $b^{2}$ & $b^{3}$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ \\ 
+			$b$ & $b$ & $b^{2}$ & $b^{3}$  & $e$ & $ab^{3}$ & $a$ & $ab$ & $ab^{2}$ \\
+		$b^{2}$ & $b^{2}$ & $b^{3}$ & $e$ & $b$ & $ab^{2}$ & $ab^{3}$ & $a$ & $ab$ \\			
+		$b^{3}$ & $b^{3}$ & $e$ & $b$ & $b^{2}$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $a$ \\
+		    $a$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $e$ & $b$ & $b^{2}$ & $b^{3}$ \\
+		   $ab$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $a$ & $b^{3}$ & $e$ & $b$ & $b^{2}$ \\
+	   $ab^{2}$ & $ab^{2}$ & $ab^{3}$ & $a$ & $ab$ & $b^{2}$ & $b^{3}$ & $e$ & $b$\\
+	   $ab^{3}$ & $ab^{3}$ & $a$ & $ab$ & $ab^{2}$ & $b$ & $b^{2}$ & $b^{3}$ & $e$\\
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+	\begin{proof}{\textbf{5}}\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllllll}
+			    & $e$ & $b$ & $b^{2}$ & $b^{3}$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ \\ \hline
+			$e$ & $e$ & $b$ & $b^{2}$ & $b^{3}$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ \\ 
+			$b$ & $b$ & $b^{2}$ & $b^{3}$  & $e$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $a$ \\
+		$b^{2}$ & $b^{2}$ & $b^{3}$ & $e$ & $b$ & $ab^{2}$ & $ab^{3}$ & $a$ & $ab$ \\			
+		$b^{3}$ & $b^{3}$ & $e$ & $b$ & $b^{2}$ & $ab^{3}$ & $a$ & $ab$ & $ab^{2}$ \\
+		    $a$ & $a$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $e$ & $b$ & $b^{2}$ & $b^{3}$ \\
+		   $ab$ & $ab$ & $ab^{2}$ & $ab^{3}$ & $a$ & $b$ & $b^{2}$ & $b^{3}$ & $e$ \\
+	   $ab^{2}$ & $ab^{2}$ & $ab^{3}$ & $a$ & $ab$ & $b^{2}$ & $b^{3}$ & $e$ & $b$\\
+	   $ab^{3}$ & $ab^{3}$ & $a$ & $ab$ & $ab^{2}$ & $b^{3}$ & $e$ & $b$ & $b^{2}$\\
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{6}}\\\\ 
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llllllllllll}
+			    & $e$ & $b$ & $b^{2}$ & $a$ & $ab$ & $ab^{2}$ & $ba$ & $bab$ & $bab^{2}$ & $b^{2}a$ & $b^{2}ab$ & $b^{2}ab^{2}$ \\ \hline
+			$e$ & $e$ & $b$ & $b^{2}$ & $a$ & $ab$ & $ab^{2}$ & $ba$ & $bab$ & $bab^{2}$ & $b^{2}a$ & $b^{2}ab$ & $b^{2}ab^{2}$ \\ 
+			$b$ & $b$ & $b^{2}$ & $e$ & $ba$ & $bab$ & $bab^{2}$ & $b^{2}a$ & $b^{2}ab$ & $b^{2}ab^{2}$ & $a$ & $ab$ & $ab^{2}$ \\
+		$b^{2}$ & $b^{2}$ & $e$ & $b$ & $b^{2}a$ & $b^{2}ab$ & $b^{2}ab^{2}$ & $a$ & $ab$ & $ab^{2}$ & $ba$ & $bab$ & $bab^{2}$ \\			
+		    $a$ & $a$ & $ab$ & $ab^{2}$ & $e$ & $b$ & $b^{2}$ & $b^{2}ab^{2}$ & $b^{2}a$ & $b^{2}ab$ & $bab$ & $bab^{2}$ & $ba$ \\
+		   $ab$ & $ab$ & $ab^{2}$ & $a$ & $b^2ab^2$ & $b^2a$ & $b^2ab$ & $bab$ & $bab^2$ & $ba$ & $e$ & $b$ & $b^2$ \\
+	   $ab^{2}$ & $ab^2$ & $a$ & $ab$ & $bab$ & $bab^2$ & $ba$ & $e$ & $b$ & $b^2$ & $b^2ab^2$ & $b^2a$ & $b^2ab$ \\
+	       $ba$ & $ba$ & $bab$ & $bab^2$ & $b$ & $b^2$ & $e$ & $ab^2$ & $a$ & $ab$ & $b^2ab$ & $b^2ab^2$ & $b^2a$ \\
+	      $bab$ & $bab$ & $bab^2$ & $ba$ & $ab^2$ & $a$ & $ab$ & $b^2ab$ & $b^2ab^2$ & $b^2a$ & $b$ & $b^2$ & $e$ \\
+	  $bab^{2}$ & $bab^2$ & $ba$ & $bab$ & $b^2ab$ & $b^2ab^2$ & $b^2a$ & $b$ & $b^2$ & $e$ & $ab^2$ & $a$ & $ab$ \\
+	  $b^{2}a$ & $b^2a$ & $b^2ab$ & $b^2ab^2$ & $b^2$ & $e$ & $b$ & $bab^2$ & $ba$ & $bab$ & $ab$ & $ab^2$ & $a$ \\
+	  $b^{2}ab$ & $b^2ab$ & $b^2ab^2$ & $b^2a$ & $bab^2$ & $ba$ & $bab$ & $ab$ & $ab^2$ & $a$ & $b^2$ & $e$ & $b$ \\
+	  $b^{2}ab^{2}$ & $b^2ab^2$ & $b^2a$ & $b^2ab$ & $ab$ & $ab^2$ & $a$ & $b^2$ & $e$ & $b$ & $bab^2$ & $ba$ & $bab$
+		\end{tabular}
+		\end{adjustbox}
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem H}
+	\begin{proof}{\textbf{1}}
+		\[\bm{G}_2=	
+		\begin{pmatrix}
+			1 & 0 & 0 & 0 & 1 & 1 \\
+			0 & 1 & 0 & 1 & 1 & 1 \\
+			0 & 0 & 1 & 0 & 0 & 1
+		\end{pmatrix}\]
+		\[\bm{H}_2=	
+		\begin{pmatrix}
+			0 & 1 & 0 & 1 & 0 & 0 \\
+			1 & 1 & 0 & 0 & 1 & 0 \\
+			1 & 1 & 1 & 0 & 0 & 1
+		\end{pmatrix}\]
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		\[\bm{G}_3=	
+		\begin{pmatrix}
+			1 & 0 & 0 & 0 & 0 & 1 & 1 \\
+			0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+			0 & 0 & 1 & 0 & 1 & 1 & 0 \\
+			0 & 0 & 0 & 1 & 1 & 1 & 1
+		\end{pmatrix}\]
+		\[\bm{H}_3=	
+		\begin{pmatrix}
+			0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+			1 & 0 & 1 & 1 & 0 & 1 & 0 \\
+			1 & 1 & 0 & 1 & 0 & 0 & 1 
+		\end{pmatrix}\]
+	\end{proof}
+	\begin{proof}{\textbf{3}}
+		By definition $\bm{x}+\bm{y}$ it's going to have 1s in every digit where $\bm{x}$ differ from $\bm{y}$ therefore $d(\bm{x},\bm{y})=w(\bm{x+y})$.
+	\end{proof}
+	\begin{proof}{\textbf{4}}
+		Since $\bm{0}$ is the word whose digits are all 0, then by definition $d(\bm{x,0})$ is the number of 1s where $\bm{x}$ differ from $\bm{0}$ i.e. the number of 1s in $\bm{x}$. Therefore $d(\bm{x,0}) = w(\bm{x})$.
+	\end{proof}
+
+\cleardoublepage
+	\begin{proof}{\textbf{5}}
+		Let $m$ be the minimum distance and $n$ the minimum weight of the code $C$.\\
+		Let $\bm{x}$ be a codeword of $C$ such that $w(\bm{x})=n$ and $\bm{0}$ be the codeword in which digits are all 0s, $\bm{0} \in C$ because $C$ is a group and $\bm{0}$ is the identity element then $d(\bm{x,0})=w(\bm{x+0})=w(\bm{x})=n \geq m$.\\
+		Let $\bm{y,z} \in C$ be two elements such that $d(\bm{y,z})=m$ i.e. elements that has the minimum distance, then $m = d(\bm{y,z})=w(\bm{y+z}) \geq n$.\\
+		Then it must follow that $m = n$.
+	\end{proof}
+	\begin{proof}{\textbf{6}}
+		\begin{itemize}
+			\item[(a)] Let $k$ be the number of positions where $\bm{x}$ and $\bm{y}$ have a 1, $\bm{x+y}$ is going to have a 0 there.\\
+			Then $w(\bm{x+y})=(w(\bm{x})-k) + (w(\bm{y})-k)=w(\bm{x})+w(\bm{y})-2k$ and since $w(\bm{x})$ and $w(\bm{y})$ are even, therefore $w(\bm{x+y})$ is even.
+			\item[(b)] Let $k$ be the number of positions where $\bm{x}$ and $\bm{y}$ have a 1, $\bm{x+y}$ is going to have a 0 there.\\
+			Then $w(\bm{x+y})=(w(\bm{x})-k) + (w(\bm{y})-k)=w(\bm{x})+w(\bm{y})-2k$ and since $w(\bm{x})$ and $w(\bm{y})$ are odd then they can be written as $w(\bm{x}) = 2n + 1$ and $w(\bm{y}) = 2m + 1$ where $m,n \in \mathbb{Z}_{\geq 0}$, therefore\\ $w(\bm{x+y})=w(\bm{x})+w(\bm{y})-2k=2n+1+2m+1-2k=2(n+m+1-k)$ which is an even number.
+			\item[(c)] Let $k$ be the number of positions where $\bm{x}$ and $\bm{y}$ have a 1, $\bm{x+y}$ is going to have a 0 there.\\
+			Then $w(\bm{x+y})=(w(\bm{x})-k) + (w(\bm{y})-k)=w(\bm{x})+w(\bm{y})-2k$ and since $w(\bm{x})$ is odd and $w(\bm{y})$ is even then they can be written as $w(\bm{x}) = 2n+1$ and $w(\bm{y}) = 2m$ where $m,n \in \mathbb{Z}_{\geq 0}$, therefore\\ $w(\bm{x+y})=w(\bm{x})+w(\bm{y})-2k=2n+1+2m-2k=2(n+m-k)+1$ which is an odd number.
+		\end{itemize}
+	\end{proof}
+
+\cleardoublepage
+	\begin{proof}{\textbf{7}}
+		Let $n$ be the number of elements in $C$ with odd weights and $m$ be the number of elements in $C$ with even weights. We want to check that $n=m$ or $n=0$.\\
+		If $n > 0$ then, let's take $x \in C$ such that $x$ has an odd weight, we can construct a set $O=\{x+y: y \in C \text{ and } w(y) \text{ is even}\}$ then the number of elements in $O$ is $m$  and $m \leq n$ since the elements in $O$ have odd weight.\\
+		On the other hand, let's build a set $E = \{x+y: y \in C  \text{ and } w(y) \text{ is odd}\}$ then the number of elements in $E$ is $n$ and $m \geq n$ since the elements in $E$ have even weight. Since $m \geq n$ and $m \leq n$ then it follows that $m=n$.\\
+		If $n=0$ then all elements of $C$ must have even weight because we cannot have an element with odd weight from all even weighted elements.\\
+		Therefore, either half of the elements in $C$ has even weight and the other half odd weight, or every element in $C$ has even weight.
+	\end{proof}
+	\begin{proof}{\textbf{8}}
+		\begin{itemize}
+			\item If $H(\bm{x+y})=\bm{0}$ then $H\bm{x}+H\bm{y}=\bm{0}$ so $H\bm{x}=-H\bm{y}$ but if we notice that $\bm{y+y}=\bm{0}$ because every digit match so $\bm{y}$ is it's own inverse then $\bm{y}=-\bm{y}$ and multiplying by $H$ on the left we get that $H\bm{y}=-H\bm{y}$. Therefore $H\bm{x}=H\bm{y}$.
+			\item If $H\bm{x}=H\bm{y}$ then $H\bm{x}-H\bm{y}=\bm{0}$ but as we saw $H\bm{y}=-H\bm{y}$ then $H\bm{x}+H\bm{y}=H(\bm{x+y})=\bm{0}$.
+		\end{itemize}
+	\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
