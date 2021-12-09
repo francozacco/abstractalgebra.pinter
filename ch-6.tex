@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 6 - Functions}
+
+	\subsubsection*{Solutions - Problem C}
+		\begin{proof}{\textbf{1}} $f: A \times B \rightarrow A$ defined by $f(x,y)=x$\\
+			\textit{f is not injective:}\\
+				Counterexample. If we take $f:\mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{Z}$ then for example $f(2,4)=2=f(2,-4)$ although $(2,4) \neq (2,-4)$.\\
+			\textit{f is not surjective:}\\
+				If we take $f:\mathbb{Z} \times \emptyset \rightarrow \mathbb{Z}$ then if we take $a \in \mathbb{Z}$ then we must have $(a,b) \in \mathbb{Z} \times \emptyset$  with $b \in \emptyset$ but $b$ cannot be in $\emptyset$. Therefore $f$ is not surjective.
+				% Counterexample. If we take $f:\mathbb{Z} \times \emptyset \rightarrow \mathbb{Z}$ then if we take $1 \in \mathbb{Z}$ since $B=\emptyset$ then there is no element in $\mathbb{Z} \times \{\}$ from which we could go to $1 \in \mathbb{Z}$
+		\end{proof}
+		\begin{proof}{\textbf{2}} $f: A \times B \rightarrow B \times A$ defined by $f(x,y)=(y,x)$\\
+			\textit{f is injective:}\\
+				Let $(a_1,b_1),(a_2,b_2) \in A \times B$ then suppose $f(a_1,b_1)=f(a_2,b_2)$ so $(b_1,a_1) = (b_2,a_2)$ and therefore $b_1=b_2$ and $a_1=a_2$. So $f$ is injective.
+			\\\textit{f is surjective:}\\
+				Now let $(b,a) \in B \times A$ then exists $(a,b) \in A \times B$ such that $(b,a)=f(a,b)$.
+		\end{proof}
+		\begin{proof}{\textbf{3}} $f: A \rightarrow A \times B$ defined by $f(x)=(x,b)$.\\
+			\textit{f is injective:}\\
+				Let's suppose $f(x)=f(y)$ where $x,y \in A$ then $(x,b)=(y,b)$ so $x=y$ and $b=b$. Therefore $f$ is injective.
+			\\\textit{f is surjective:}\\
+				Now let $(x,b) \in A \times B$ then $x \in A$ such that $(x,b)=f(x)$. Therefore $f$ is surjective.				
+				%If we take $f:\mathbb{Z} \rightarrow \mathbb{Z}  \times \emptyset$ for $f$ to be surjective we must have $(a,b) \in \mathbb{Z} \times \emptyset$  with $a \in \mathbb{Z}$ and $b$ a fixed element of the $\emptyset$ but $b$ cannot be in $\emptyset$. Therefore $f$ is not surjective.
+		\end{proof}
+		\begin{proof}{\textbf{4}} $f: G \rightarrow G$ defined by $f(x)=ax$ with $a \in G$.\\
+			\textit{f is injective:}\\
+				Suppose $f(b)=f(c)$ with $b,c \in G$ then $ab=ac$ multiplying on the left by $a^{-1}$ we have that $a^{-1}ab=a^{-1}ac$ then $b=c$. Therefore $f$ is injective.
+			\\\textit{f is surjective:}\\
+				Let $x \in G$ and we know that $a \in G$ then $x=aa^{-1}x=f(a^{-1}x)$. Therefore $f$ is surjective.
+		\end{proof}
+\cleardoublepage
+
+		\begin{proof}{\textbf{5}} $f: G \rightarrow G$ defined by $f(x)=x^{-1}$.\\
+			\textit{f is injective:}\\
+				Suppose $f(a)=f(b)$ with $a,b \in G$ then $a^{-1}=b^{-1}$ multiplying on the left by $a$ we have that $aa^{-1}=ab^{-1}$ then multiplying on the right by $b$ we get that $eb=ab^{-1}b$ then $b=a$. Therefore $f$ is injective.
+			\\\textit{f is surjective:}\\
+				Let $a \in G$ we want to find a $b \in G$ such that $f(b)=b^{-1}=a$. Since $a=(a^{-1})^{-1}$ then our element $b$ is $a^{-1}$ such that $a=(a^{-1})^{-1}=f(a^{-1})$. Therefore $f$ is surjective.
+		\end{proof}
+		\begin{proof}{\textbf{6}} $f: G \rightarrow G$ defined by $f(x)=x^{2}$.\\
+			\textit{f is not injective:}\\
+				Counterexample: Let $G=\mathbb{R}^{*}$ if we consider $f(-2)=f(2)$ then $(-2)^{2}=2^{2}$ but $-2 \neq 2$. Therefore $f$ is not injective.
+			\\\textit{f is not surjective:}\\
+				Counterexample: If $G=\mathbb{R}^{*}$ then $-1$ is not equal to any $f(x)$ with $x \in \mathbb{R}^{*}$. Therefore $f$ is not surjective.
+		\end{proof}
+
+	\subsubsection*{Solutions - Problem G}
+		\begin{proof}{\textbf{1}} Prove that if $g \circ f$ is injective, then $f$ is injective.\\
+			Suppose $f(x)=f(y)$ where $x,y \in A$ then applying $g$ on both sides of the equation $g(f(x))=g(f(y))$, but since $g \circ f$ is injective, then $x=y$.
+		\end{proof}
+		\begin{proof}{\textbf{2}} Prove that if $g \circ f$ is surjective, then $g$ is surjective.\\
+			Since $g \circ f$ is surjective if we take $c \in C$ then there is some $a \in A$ such that $[g \circ f](a)=c$, now let $f(a)=b$ where $b \in B$, so $[g \circ f](a)=g(f(a))=g(b)=c$ and therefore $g$ is surjective because for $c \in C$
+ we have a $b \in B$ such that $g(b)=c$ as we saw.
+ 		\end{proof}
+ 		\begin{proof}{\textbf{3}} Prove that if $f$ is injective and $g$ is surjective then $g \circ f$ is bijective?\\
+			Counterexample:\\
+			Let $g:\{0,1,2\} \rightarrow \{0,1\}$ with the assignment $0 \rightarrow 0$, $1 \rightarrow 1$ and $2 \rightarrow 1$ also let $f:\{0,1\} \rightarrow \{0,1,2\}$ with the assignment $0 \rightarrow 1$ and $1 \rightarrow 2$, as noticed $g$ is surjective and $f$ is injective, then $g \circ f: \{0,1\} \rightarrow \{0,1\}$ with the assignment $0 \rightarrow 1$ and $1 \rightarrow 1$ which is clearly non-injective and non-surjective.
+ 		\end{proof}
+  		\begin{proof}{\textbf{4}} Let $f: A \to B$ and $g:B \to A$ be functions. Suppose that $y=f(x)$ iff $x=g(y)$. Prove that $f$ is bijective, and $g=f^{-1}$.\\
+  			Since $f(x)=y$ if and only if $x=g(y)$ then because of the definition of the inverse function $g$ must be $f^{-1}$ and since $f$ has an inverse is therefore bijective.
+  		\end{proof}
+\cleardoublepage
+ 	\subsubsection*{Solutions - Problem H}
+		\begin{proof}{\textbf{1}}
+			The alphabet is $A = \{a,b,c,d\}$ and the set of states is \\$S = \{s_0,s_1,s_2,s_3,s_4\}$. The table of the next-state function is: \\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llll}
+				      & $a$ & $b$ & $c$ & $d$ \\ \hline
+				$s_0$ & $s_1$ & $s_0$ & $s_0$ & $s_0$ \\
+				$s_1$ & $s_2$ & $s_1$ & $s_1$ & $s_1$ \\
+				$s_2$ & $s_3$ & $s_2$ & $s_2$ & $s_2$ \\
+				$s_3$ & $s_4$ & $s_3$ & $s_3$ & $s_3$ \\
+				$s_4$ & $s_4$ & $s_4$ & $s_4$ & $s_4$ \\
+			\end{tabular}
+			\end{adjustbox}\\\\
+			When an $a$ appears in the sequence the internal state changes to the subsequent state until the  $s_4$ state is reached which means that 3 $a$ has appeared.
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			The alphabet is $A = \{a,b,c,d\}$ and the set of states is \\$S = \{s_0,s_1,s_2,s_3\}$. The table of the next-state function is: \\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llll}
+				      & $a$ & $b$ & $c$ & $d$ \\ \hline
+				$s_0$ & $s_1$ & $s_0$ & $s_0$ & $s_0$ \\
+				$s_1$ & $s_2$ & $s_1$ & $s_1$ & $s_1$ \\
+				$s_2$ & $s_3$ & $s_2$ & $s_2$ & $s_2$ \\
+				$s_3$ & $s_3$ & $s_3$ & $s_3$ & $s_3$ \\
+			\end{tabular}
+			\end{adjustbox}\\\\
+			When an $a$ appears in the sequence the internal state changes to the subsequent state until the  $s_3$ state is reached which means that 3 $a$ has appeared, the apperance of another $a$ doesn't modify the state.
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{3}}
+			The alphabet is $A = \{0,1,2,3,4\}$ and the set of states is \\$S = \{s_0,s_1,s_2,s_3,s_4\}$. The table of the next-state function is: \\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|lllll}
+				      & $0$   & $1$   & $2$   & $3$   & $4$ \\ \hline
+				$s_0$ & $s_0$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ \\
+				$s_1$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_0$ \\
+				$s_2$ & $s_2$ & $s_3$ & $s_4$ & $s_0$ & $s_1$ \\
+				$s_3$ & $s_3$ & $s_4$ & $s_0$ & $s_1$ & $s_2$ \\
+				$s_4$ & $s_4$ & $s_0$ & $s_1$ & $s_2$ & $s_3$
+			\end{tabular}
+			\end{adjustbox}\\\\
+			In this case the acceptance state could be any of the states availables in $S$.
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			The alphabet is $A = \{0,1\}$ and the set of states is \\$S = \{s_0,s_1,s_2,s_3\}$. The table of the next-state function is: \\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|lllll}
+				      & $0$   & $1$   \\ \hline
+				$s_0$ & $s_0$ & $s_1$ \\
+				$s_1$ & $s_0$ & $s_2$ \\
+				$s_2$ & $s_0$ & $s_3$ \\
+				$s_3$ & $s_0$ & $s_3$ \\ 
+			\end{tabular}
+			\end{adjustbox}\\\\
+			In this case, we keep changing states as long as they are 1s, until we reach three 1s i.e. $s_3$, if a 0 appears then we restart the count always.
+			The accepting state is therefore $s_3$.
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			\begin{itemize}
+				\item[(a)] Table of $\overline{\alpha}(s_0,\bm{x})$ for three-digit sequences:\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|l}
+				sequences & $\overline{\alpha}(s_0,\bm{x})$ \\ \hline
+				$000$     & $s_0$ \\
+				$001$     & $s_1$ \\
+				$010$     & $s_1$ \\
+				$100$     & $s_1$ \\
+				$110$     & $s_0$ \\
+				$011$     & $s_0$ \\
+				$101$     & $s_0$ \\
+				$111$     & $s_1$ \\ 
+			\end{tabular}
+			\end{adjustbox}\\\\
+\cleardoublepage
+				\item[(b)] Table of $\overline{\alpha}(s_0,\bm{x})$ for two-digit sequences is:\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|l}
+				sequences & $\overline{\alpha}(s_0,\bm{x})$ \\ \hline
+				$aa$     & $s_2$ \\
+				$ab$     & $s_1$ \\
+				$ac$     & $s_1$ \\
+				$ad$     & $s_1$ \\
+				$ba$     & $s_1$ \\
+				$bb$     & $s_0$ \\
+				$bc$     & $s_0$ \\
+				$bd$     & $s_0$ \\ 
+				$ca$     & $s_1$ \\
+				$cb$     & $s_0$ \\ 
+				$cc$     & $s_0$ \\
+				$cd$     & $s_0$ \\ 
+				$da$     & $s_1$ \\
+				$db$     & $s_0$ \\ 
+				$dc$     & $s_0$ \\ 
+				$dd$     & $s_0$ \\ 
+			\end{tabular}
+			\end{adjustbox}\\\\
+			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{6}}
+			\begin{itemize}
+				\item[(a)] For the sequence $\bm{x}=01001$ the transition function is: $T_x(s_0) = s_0$ and $T_x(s_1) = s_1$ \\
+				For the sequence $\bm{x}=10011$ the transition function is: $T_x(s_0) = s_1$ and $T_x(s_1) = s_0$\\
+				For the sequence $\bm{x}=01010$ the transition function is: $T_x(s_0) = s_0$ and $T_x(s_1) = s_1$
+				\item[(b)] The sequences $\bm{x}$ has either an even or odd number of 1's then in the former case $T_x(s_i) = s_i$ and in the later case $T_x(s_i) = s_j$ where $s_i$ and $s_j$ is either $s_0$ or $s_1$ which are the two available states.
+				\item[(c)] For all the sequences $\bm{x} = abbca$, $\bm{x} = babac$ and $\bm{x} = ccbaa$ the transition function is defined as follows $T_x(s_0)=s_2$, $T_x(s_1)=s_3$, $T_x(s_2)=s_4$, $T_x(s_3)=s_4$ and $T_x(s_4)=s_4$ since all the sequences have two $a$ elements which is the only element that generates a state change.
+				\item[(d)] Since for each staring state we could end in any other of the states depending on the sequence, therefore we have 25 distinct transition functions.
+ 			\end{itemize}
+		\end{proof}
+\cleardoublepage
+ 	\subsubsection*{Solutions - Problem I}
+		\begin{proof}{\textbf{1}}
+			The next state function for $M(\mathbb{Z}_4)$ is:\\\\
+			\begin{adjustbox}{max width=\textwidth,center}
+			\begin{tabular}{l|llll}
+				    & $0$ & $1$ & $2$ & $3$ \\ \hline
+				$0$ & $0$ & $1$ & $2$ & $3$ \\
+				$1$ & $1$ & $2$ & $3$ & $0$ \\
+				$2$ & $2$ & $3$ & $0$ & $1$ \\
+				$3$ & $3$ & $0$ & $1$ & $2$ \\
+			\end{tabular}
+			\end{adjustbox}\\\\
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			Since $T_{\bm{x}}(s_i) = \overline{\alpha}(s_i, \bm{x})$ and $\overline{\alpha}(s_i, \bm{x})=s_j$ is the state of the machine after the last symbol of $\bm{x}$ is read, if then we pass that state to $T_{\bm{y}}$ we obtain again the state of the machine after the last symbol of $\bm{y}$ is read starting from the state $s_j$, i.e $T_{\bm{y}}(s_j)=s_k$. So if now we do $T_{\bm{xy}}(s_i)$ after reading $\bm{x}$ part of the sequence we end up in the state $s_j$ and then continuing from there till the end of the sequence we get $s_k$. Therefore $[T_{\bm{y}} \circ T_{\bm{x}}](s_i) = T_{\bm{y}}(T_{\bm{x}}(s_i)) = T_{\bm{xy}}(s_i)$.
+		\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
