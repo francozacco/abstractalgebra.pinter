@@ -1,0 +1,300 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 7 - Groups of Permutations}
+
+	\subsubsection*{Solutions - Problem A}
+		\begin{proof}{\textbf{1}} 
+			\begin{gather*}
+				f^{-1} =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					2 & 6 & 3 & 5 & 4 & 1
+				\end{pmatrix}\\							
+				g^{-1} =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					3 & 1 & 2 & 6 & 5 & 4
+				\end{pmatrix}\\
+				h^{-1} =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					2 & 6 & 1 & 4 & 5 & 3
+				\end{pmatrix}\\
+				f \circ g =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					1 & 3 & 6 & 2 & 4 & 5
+				\end{pmatrix}\\
+				g \circ f =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					4 & 2 & 1 & 5 & 6 & 3
+				\end{pmatrix}
+			\end{gather*}
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			\begin{equation*}
+				f \circ(g \circ h) =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					6 & 1 & 5 & 2 & 4 & 3
+				\end{pmatrix}			
+			\end{equation*}
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			\begin{equation*}
+				g \circ h^{-1} =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					3 & 4 & 2 & 6 & 5 & 1
+				\end{pmatrix}			
+			\end{equation*}
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			\begin{equation*}
+				h \circ g^{-1} \circ f^{-1} =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					3 & 4 & 1 & 5 & 2 & 6
+				\end{pmatrix}			
+			\end{equation*}
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			\begin{equation*}
+				g \circ g \circ g =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4 & 5 & 6 \\
+					1 & 2 & 3 & 6 & 5 & 4
+				\end{pmatrix}			
+			\end{equation*}
+		\end{proof}
+	\subsubsection*{Solutions - Problem B}
+		\newcommand{\ep}{$\varepsilon$ }
+		\begin{proof}{\textbf{1}}
+			Table for $G$:\\\\
+				\begin{adjustbox}{max width=\textwidth,center}
+				\begin{tabular}{l|llll}
+				$\circ$ & \ep & $f$ & $g$ & $h$ \\ \hline
+				\ep     & \ep & $f$ & $g$ & $h$ \\
+				$f$     & $f$ & \ep & $h$ & $g$ \\
+				$g$     & $g$ & $h$ & \ep & $f$ \\
+				$h$     & $h$ & $g$ & $f$ & \ep \\
+				\end{tabular}
+				\end{adjustbox}\\\\
+			From the table we see that:
+				\begin{itemize}
+				\item[(a)] \ep is our identity element.
+				\item[(b)] And each element is it's own inverse.
+				\end{itemize}							
+			Also we saw that $\circ$ is associative. Therefore $G$ is a group.
+		\end{proof}
+	\subsubsection*{Solutions - Problem D}
+	\begin{proof}{\textbf{1}}
+		To prove that $f_n$ is a permutation of $\mathbb{R}$ is to prove that $f_n$ is a bijective function and that the domain of $f_n$ is the same as its codomain which is ovbious since if $x \in \mathbb{R}$ then $x+n \in \mathbb{R}$ for any integer $n$, then:
+		\begin{itemize}
+			\item[(a)] Let $a,b \in \mathbb{R}$ and suppose $f_n(a)=f_n(b)$ then $a+n=b+n$ so substracting $n$ on both sides we get that $a=b$. Therefore $f_n$ is injective.
+			\item[(b)] Let $a \in \mathbb{R}$ the codomain then $f(a-n)=a$ where $a-n \in \mathbb{R}$ the domain. Therefore $f_n$ is surjective.
+		\end{itemize}
+		Finally, since $f_n$ is both surjective and injective, is therefore bijective function and a permutation of $\mathbb{R}$.
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		\begin{itemize}
+			\item[(a)] $f_{n+m}$ is defined as $f_{n+m}(x) = x + n + m$. On the other hand\\ $[f_n \circ f_m](x) = f_n(f_m(x))=f_n(x+m)=(x+m)+n$.\\ Therefore $f_{n+m}=f_n \circ f_m$. 
+			\item[(b)] The function $f_{-n}$ is defined as $f_{-n}(x) = x + (-n)=x - n$. The inverse of $f_n$ should be the function such that $f^{-1}_n \circ f_n =$ \ep and $f_n \circ f^{-1}_n = \varepsilon$. If we do $f_{-n} \circ f_n = (x + n) - n = x = \varepsilon(x)$, and analogously $f_{n} \circ f_{-n} = (x - n) + n = x = \varepsilon(x)$. Therefore $f^{-1}_n = f_{-n}$.
+		\end{itemize}
+	\end{proof}
+
+\cleardoublepage
+	\begin{proof}{\textbf{3}} Let's prove that $G = \{f_n:n \in \mathbb{Z}\}$ is a subgroup of $S_{\mathbb{R}}$.
+		\begin{itemize}
+			\item[(a)] $G$ is clearly nonempty since if $n = 0 \in \mathbb{Z}$ then $f_0(x)=x+0 = x = \varepsilon(x)$ then $\varepsilon \in G$.
+			\item[(b)] As we saw $f_n \circ f_m = f_{n+m}$ and $n+m \in \mathbb{Z}$. Therefore $f_n$ is closed with repect to composition.
+			\item[(c)] As we saw $f^{-1}_n = f_{-n}$ and $-n \in \mathbb{Z}$. Therefore $f_n$ is closed with respect to inverses.
+		\end{itemize}
+		Since $G$ is closed with respect to composition and inverses, then it's a subgroup of $S_{\mathbb{R}}$.
+	\end{proof}
+	\begin{proof}{\textbf{4}}
+		By composing $f_1$ with itself we jump from $n=1$ to the next integer $n=2$, i.e. $f_1 \circ f_1 = f_2$. So we can generate any $f_n$ with $n \in \mathbb{Z}$ by composing $f_1$ with itself or with its inverse $f_{-1}$ $n - 1$ times. Therefore $f_1$ is a generator of $G$.
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem E}
+	\begin{proof}{\textbf{1}}
+		Proving that $f_{a,b}$ is a permutation of $\mathbb{R}$
+		\begin{itemize}
+			\item[(a)] The domain and the codomain of $f_{a,b}$ needs to be the same, which is clear since if $x \in \mathbb{R}$ and $a,b \in \mathbb{R}$ then $ax+b \in \mathbb{R}$.
+			\item[(b)] Let $c \in \mathbb{R}$ since $a,b \in \mathbb{R}$ and $a \neq 0$ then $\frac{c-b}{a} \in \mathbb{R}$ and $f(\frac{c-b}{a}) = c$. Therefore $f_{a,b}$ is surjective.
+			\item[(c)] Let $x,y \in \mathbb{R}$ and suppose $f_{a,b}(x) = f_{a,b}(y)$ then $ax+b = ay+b$ then $ax = ay$ so $x=y$. Therefore $f_{a,b}$ is injective.
+		\end{itemize}
+		Finally, since the domain and codomain of $f_{a,b}$ is the same and $f_{a,b}$ is both surjective and injective, is therefore a bijective function and a permutation of $\mathbb{R}$.
+	\end{proof}
+	\begin{proof}{\textbf{2}}
+		$f_{ac,ad+b}$ is defined as $f_{ac,ad+b}(x)=acx + (ad + b)$. On the other hand $[f_{a,b} \circ f_{c,d}](x)=f_{a,b}(f_{c,d}(x))=f_{a,b}(cx+d)=a(cx+d)+b=acx+ad+b$. Therefore $f_{ac,ad+b}=f_{a,b} \circ f_{c,d}$.
+	\end{proof}
+	\begin{proof}{\textbf{3}}\\
+		The inverse of $f_{a,b}$ should be the function such that $f^{-1}_{a,b} \circ f_{a,b} = \varepsilon$ and $f_{a,b} \circ f^{-1}_{a,b} = \varepsilon$. On the other hand, the function $f_{1/a,-b/a}$ is defined as $f_{1/a,-b/a}(x)=\frac{x}{a} -\frac{b}{a}$.\\
+		If we do $[f_{1/a,-b/a} \circ f_{a,b}](x) = f_{1/a,-b/a}(ax+b) = \frac{ax+b}{a} -\frac{b}{a}=x+\frac{b}{a}-\frac{b}{a}=x=\varepsilon(x)$ and analogously $[f_{a,b} \circ f_{1/a,-b/a}](x) = f_{a,b}(\frac{x}{a}-\frac{b}{a}) = a(\frac{x}{a}-\frac{b}{a})+b = x -b +b = x =\varepsilon(x)$.\\ Therefore $f_{1/a,-b/a}=f^{-1}_{a,b}$.
+	\end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{4}} Let's prove that $G = \{f_{a,b}: a,b \in \mathbb{R}, a \neq 0\}$ is a subgroup of $S_{\mathbb{R}}$.
+		\begin{itemize}
+			\item[(a)] $G$ is nonempty since if $a = 1 \in \mathbb{R}$ and $b=0 \in \mathbb{R}$ then $f_{1,0}(x)=x+0 = x = \varepsilon(x)$ then $\varepsilon \in G$.
+			\item[(b)] As we saw $f_{a,b} \circ f_{c,d} = f_{ac,ad+b}$ where $ac,ad+b \in \mathbb{R}$. Therefore $f_{a,b}$ is closed with respect to composition.
+			\item[(c)] As we saw $f^{-1}_{a,b} = f_{1/a,-b/a}$ and since $a \neq 0$ then $1/a \in \mathbb{R}$ and $-b/a \in \mathbb{•}bb{R}$. Therefore $f_{a,b}$ is closed with respect to inverses.
+		\end{itemize}
+		Since $G$ is closed with respect to composition and inverses, then it's a subgroup of $S_{\mathbb{R}}$.
+	\end{proof}
+	\subsubsection*{Solutions - Problem F}
+	\begin{proof}{\textbf{2}}
+		The elements of $G$ are:
+			 $$\varepsilon = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	1 & 2 & 3 & 4 
+			 \end{pmatrix}$$
+			 $$f = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	2 & 1 & 4 & 3 
+			 \end{pmatrix}$$
+			 $$g = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	3 & 4 & 1 & 2 
+			 \end{pmatrix}$$
+			 $$h = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	4 & 3 & 2 & 1 
+			 \end{pmatrix}$$
+		And the table for $G$ is:\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+		$\circ$ & \ep & $f$ & $g$ & $h$ \\ \hline
+		\ep     & \ep & $f$ & $g$ & $h$ \\
+		$f$     & $f$ & \ep & $h$ & $g$ \\
+		$g$     & $g$ & $h$ & \ep & $f$ \\
+		$h$     & $h$ & $g$ & $f$ & \ep \\
+		\end{tabular}
+		\end{adjustbox}\\\\
+	\end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{3}}
+		The symmetries of the letter \textbf{Z} are:
+			 $$\varepsilon = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	1 & 2 & 3 & 4 
+			 \end{pmatrix}$$
+			 $$f = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	4 & 3 & 2 & 1 
+			 \end{pmatrix}$$
+		And the table for \textbf{Z} is:\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+		$\circ$ & \ep & $f$ \\ \hline
+		\ep     & \ep & $f$ \\
+		$f$     & $f$ & \ep \\
+		\end{tabular}
+		\end{adjustbox}\\\\
+		The symmetries of the letter \textbf{V} are:
+			 $$\varepsilon = \begin{pmatrix}
+			 	1 & 2 & 3 \\
+			 	1 & 2 & 3 
+			 \end{pmatrix}$$
+			 $$f = \begin{pmatrix}
+			 	1 & 2 & 3 \\
+			 	3 & 2 & 1 
+			 \end{pmatrix}$$
+		And the table for \textbf{V} is:\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+		$\circ$ & \ep & $f$ \\ \hline
+		\ep     & \ep & $f$ \\
+		$f$     & $f$ & \ep \\
+		\end{tabular}
+		\end{adjustbox}\\\\
+		The symmetries of the letter \textbf{H} are:
+			 $$\varepsilon = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	1 & 2 & 3 & 4 
+			 \end{pmatrix}$$
+			 $$f = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	2 & 1 & 4 & 3 
+			 \end{pmatrix}$$
+			 $$g = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	3 & 4 & 1 & 2 
+			 \end{pmatrix}$$
+			 $$h = \begin{pmatrix}
+			 	1 & 2 & 3 & 4 \\
+			 	4 & 3 & 2 & 1 
+			 \end{pmatrix}$$
+		And the table for \textbf{H} is:\\\\
+		\begin{adjustbox}{max width=\textwidth,center}
+		\begin{tabular}{l|llll}
+		$\circ$ & \ep & $f$ & $g$ & $h$ \\ \hline
+		\ep     & \ep & $f$ & $g$ & $h$ \\
+		$f$     & $f$ & \ep & $h$ & $g$ \\
+		$g$     & $g$ & $h$ & \ep & $f$ \\
+		$h$     & $h$ & $g$ & $f$ & \ep \\
+		\end{tabular}
+		\end{adjustbox}\\\\
+	\end{proof}
+\cleardoublepage
+	\subsubsection*{Solutions - Problem H}
+	\begin{proof}{\textbf{1}} Let's prove that $G$ is a subgroup of $S_A$.
+		\begin{itemize}
+			\item[(a)] $G$ is nonempty since $\varepsilon(a)=a$ where $\varepsilon$ is the identity permutation, so $\varepsilon \in G$.
+			\item[(b)] Let $f,g \in G$ then $[f \circ g](a) = f(g(a)) = f(a) = a$ so $f \circ g \in G$. Therefore $G$ is closed with respect to composition.
+			\item[(c)] Let $f \in G$ and then $[f^{-1} \circ f](a) = f^{-1}(f(a)) =f^{-1}(a)$ and to $f^{-1}$ to be the inverse of $f$ it should happen that $[f^{-1} \circ f](x) = x$ for any $x$ then $f^{-1}(a)=a$. Therefore $G$ is closed with respect to inverses.
+ 		\end{itemize}
+	Since $G$ is nonempty and closed with respect to composition and inverses, then it's a subgroup of $S_{A}$.
+	\end{proof}
+
+	\subsubsection*{Solutions - Problem I}
+	\begin{proof}{\textbf{1}}
+		Let $k_j$ be a clan then $\varepsilon(k_j)=k_j$ and 
+		$\alpha(k_j)=k_j$ then $\varepsilon(k_j)=\alpha(k_j)$ and because of the rule (viii) $\varepsilon(k_i)=\alpha(k_i)$ for any $k_i$. Therefore $\alpha = \varepsilon$. 
+	\end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
