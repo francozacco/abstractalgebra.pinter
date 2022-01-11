@@ -1,0 +1,473 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+
+\title{\textbf{Solved Abstract Algebra - Pinter}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 8 - Permutations of a finite set}
+
+	\subsubsection*{Solutions - Problem A}
+		\begin{proof}{\textbf{1}} 
+			$$(a) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				4 & 6 & 7 & 5 & 1 & 8 & 3 & 2 & 9
+			\end{pmatrix}$$
+			$$(b) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				7 & 8 & 5 & 9 & 4 & 2 & 1 & 6 & 3
+			\end{pmatrix}$$
+			$$(c) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				8 & 5 & 6 & 9 & 7 & 3 & 1 & 2 & 4
+			\end{pmatrix}$$
+			$$(d) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				2 & 1 & 4 & 7 & 5 & 6 & 4 & 8 & 9
+			\end{pmatrix}$$
+			$$(e) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				3 & 8 & 2 & 6 & 5 & 1 & 7 & 4 & 9
+			\end{pmatrix}$$
+			$$(f) \quad \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+				3 & 5 & 4 & 9 & 2 & 1 & 7 & 6 & 8
+			\end{pmatrix}$$
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			\begin{align*}
+				(a) &\quad (145)(293)(67)(8) \\
+				(b) &\quad (17)(24)(395)(68) \\
+				(c) &\quad (17435)(296)(8)   \\
+				(d) &\quad (1928)(375)(4)(6) \\
+			\end{align*}
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			$$(a) \quad (137428) = (82)(84)(87)(83)(81)$$
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			\begin{align*}
+			(a) \quad \alpha^{-1}\beta &= (3417)(123) \\
+									   &= (124)(73)							  
+			\end{align*}
+			\begin{align*}
+			(b) \quad \gamma^{-1}\alpha &= (25314)(3714) \\
+									    &= (125374)
+			\end{align*}
+		\end{proof}
+
+	\subsubsection*{Solutions - Problem B}
+		\begin{proof}{\textbf{1}}
+			\begin{align*}
+				(a) \quad \alpha &= (123) \\
+				\alpha^{-1} &= (321) \\
+				\alpha^{2} &= (132) \\
+				\alpha^{3} &= (1)(2)(3) \\
+				\alpha^{4} &= (123) \\
+				\alpha^{5} &= (132)
+			\end{align*}
+			\begin{align*}
+				(b) \quad \alpha &= (1234) \\
+				\alpha^{-1} &= (4321) \\
+				\alpha^{2} &= (13)(24) \\
+				\alpha^{3} &= (1432) \\
+				\alpha^{4} &= (1)(2)(3)(4) \\
+				\alpha^{5} &= (1234)
+			\end{align*}
+			\begin{align*}
+				(c) \quad \alpha &= (12345) \\
+				\alpha^{-1} &= (54321) \\
+				\alpha^{2} &= (13524) \\
+				\alpha^{3} &= (14253) \\
+				\alpha^{4} &= (15432) \\
+				\alpha^{5} &= (1)(2)(3)(4)(5)
+			\end{align*}
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{2}}
+			The following are some of the powers of $\alpha$:
+				$$\alpha = \begin{pmatrix}
+					a_1 & a_2 & ... & a_s \\
+					a_2 & a_3 & ... & a_1 \\
+				\end{pmatrix}
+				$$
+				$$\alpha^{-1} = \begin{pmatrix}
+					a_1 & a_2 & ... & a_s \\
+					a_s & a_1 & ... & a_{s-1} \\
+				\end{pmatrix}
+				$$
+				$$\alpha^{2} = \begin{pmatrix}
+					a_1 & a_2 & ... & a_s \\
+					a_3 & a_4 & ... & a_2 \\
+				\end{pmatrix}$$
+				$$\alpha^{3} = \begin{pmatrix}
+					a_1 & a_2 & ... & a_s \\
+					a_4 & a_5 & ... & a_3 \\
+				\end{pmatrix}$$
+			So, as visible $\alpha^{2}(a_i) = a_{i + 2 \text{ mod } s}$, and $\alpha^{3}(a_i) = a_{i + 3 \text{ mod } s}$, so we can write $\alpha^{m}(a_i) = a_{i + m \text{ mod } s}$ where $m \in \mathbb{Z}$. If $m=s$ then $\alpha^{s}(a_i) = a_{i + s \text{ mod } s}=\varepsilon(a_i)$ and for $m=s+1$ then $\alpha^{s+1}(a_i) = a_{i + s + 1 \text{ mod } s}$ which is the same as $\alpha(a_i)$. Therefore there are $s$ different powers of $\alpha$.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			The inverse of $\alpha$ is:
+			$$\alpha^{-1} = \begin{pmatrix}
+				a_1 & a_2 & ... & a_s \\
+				a_s & a_1 & ... & a_{s-1} \\
+			\end{pmatrix} = (a_{s}a_{s-1}a_{s-2} \text{ ... } a_1)$$
+			Then \\
+			$$ \alpha^{-1}(a_i) = a_{i-1 \text{ mod }s}$$
+			On the other hand, using the equation we saw,
+			$$\alpha^{s-1}(a_i) = a_{i+(s-1) \text{ mod }s}$$
+			but since $n-s \mod s = n$ for any integer $n,s \in \mathbb{Z}$ then $i -s -1 \mod s = i -1 \mod s$. Therefore $\alpha^{-1}=\alpha^{s-1}$.
+		\end{proof}
+
+	\subsubsection*{Solutions - Problem C}
+		\begin{proof}{\textbf{2}}
+			\begin{itemize}
+				\item[(a)] Let $\pi_1$ and $\pi_2$ be two even permutations. Then we can write them as a product of transpositions and since they are even permutations they have $2i$ and $2j$ transpositions, where $i,j$ are positive integers. The product of $\pi_1$ and $\pi_2$ is then going to have $2(i+j)$ transpositions which is an even number of transpositions.
+				\item[(b)] Let $\pi_1$ and $\pi_2$ be two odd permutations. Then we can write them as a product of transpositions and since they are odd permutations they have $2i+1$ and $2j+1$ transpositions, where $i,j$ are positive integers. The product of $\pi_1$ and $\pi_2$ is then going to have $2i+1+2j+1=2(i+j+1)$ transpositions which is an even number of transpositions.
+				\item[(c)] Let $\pi_1$ be an odd permutation and $\pi_2$ be an even permutation. Then we can write $\pi_1$ as a product of $2i+1$ transpositions and $\pi_2$ as a product of $2j$ transpositions, where $i$ and $j$ are positive integers. The product of $\pi_1$ and $\pi_2$ is then going to have $2i+1+2j=2(i+j)+1$ transpositions which is an odd number of transpositions.
+			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			\begin{itemize}
+				\item [(a)] The cycle $l$ can be written as a product of
+				transpositions
+				$$(a_la_{l-1})(a_la_{l-2}) \dots (a_la_1)$$
+				which is going to have $l-1$ transpositions. But if we write $l$
+				as a cycle,
+				$$(a_1 \dots a_{l-1}a_l)$$
+				As we can see it's going to have $l$ elements. In particular if
+				$l$ has an odd number of transpositions then written as a cycle
+				is going to have an even number of elements. 
+   				\item [(b)] Taking into account what was shown in (a), then if
+				a cycle can be written as a product of an even number of
+				transpositions then written as a cycle is going to have an odd
+				number of elements.
+ 			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			\begin{itemize}
+				\item[(a)] If $\alpha$ is a cycle of length $l$ and $\beta$ is
+				a cycle of length $m$ then $\alpha\beta$ according on what we
+				saw can be written as a product of $(l-1)+(m-1) = l+m-2$
+				transpositions therefore $\alpha\beta$ is going to be even or
+				odd depending on the result of $l+m-2$.
+				\item[(b)] If $\pi = \beta_1 \dots \beta_r$ and each $\beta_i$
+				is a cycle of length $l_i$ then $\pi$ can be written as product
+				of $(l_1-1)+(l_2-1) + \dots + (l_r-1) = l_1+l_2+\dots+l_r-r$
+				transpositions. Therefore $\pi$ is going
+				to be even or odd depending on the result of $l_1+l_2+\dots+l_r-r$.
+			\end{itemize}
+		\end{proof}
+	\subsubsection*{Solutions - Problem D}
+		\begin{proof}{\textbf{1}}
+			$(\alpha\beta)^n=\alpha\beta\alpha\beta \dots \alpha\beta$
+			where the $\alpha\beta$ products are repeated $n$ times
+			but since $\alpha$ and $\beta$ are disjoint cycles they commute so
+			we can write the product as $\alpha\alpha \dots \alpha\beta\beta \dots \beta$
+			where each $\alpha$ and $\beta$ are repeated $n$ times, therefore
+			$(\alpha\beta)^n = \alpha\alpha \dots \alpha\beta\beta \dots \beta = \alpha^n\beta^n$.
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{2}}
+			Since $\alpha\beta = \varepsilon$ assume either $\alpha \neq \varepsilon$ or
+			$\beta \neq \varepsilon$ then
+			\begin{itemize}
+				\item [Case 1] Assume $\alpha \neq \varepsilon$ \\
+				If $\beta = \varepsilon$ we have that $\alpha\varepsilon = \alpha = \varepsilon$ which
+				is a contradiction, so must be $\beta = \alpha^{-1}$ so since
+				$\alpha = (a_1a_2 \dots a_s)$ then $\alpha^{-1} = (a_sa_{s-1} \dots a_1)$
+				which is not disjoint from $\alpha$ but $\beta$ is disjoint
+				from $\alpha$, so we have a contradiction.
+				\item [Case 2] Assume $\beta \neq \varepsilon$ \\
+				In the same way if $\alpha = \varepsilon$ we have that
+				$\varepsilon\beta = \beta = \varepsilon$ which is a contradiction,
+				so must be $\alpha = \beta^{-1}$ so since
+				$\beta = (b_1b_2 \dots b_s)$ then $\beta^{-1} = (b_sb_{s-1} \dots b_1)$
+				which is not disjoint from $\beta$ but $\alpha$ is disjoint
+				from $\beta$, so we have a contradiction.
+			\end{itemize}
+			Therefore $\alpha = \varepsilon$ and $\beta = \varepsilon$.
+		\end{proof}
+	\subsubsection*{Solutions - Problem E}
+		\begin{proof}{\textbf{1}}
+			Let $x = \pi(a_i)$ then,
+			\begin{align*}
+				\pi\alpha\pi^{-1}(x) &= \pi\alpha\pi^{-1}(\pi(a_i)) \\
+									 &= \pi\alpha(a_i) \\
+									 &= \pi(a_{i+1})
+			\end{align*}
+			And in case $x=c$ where $c \notin \alpha$ we have that
+			\begin{align*}
+				\pi\alpha\pi^{-1}(c) &= \pi\alpha(\pi^{-1}(c)) \\
+									 &= \pi\pi^{-1}(c) \\
+									 &= c
+			\end{align*}
+			Then $\pi\alpha\pi^{-1}$ maps $\pi(a_i)$ to $\pi(a_{i+1})$. \\ 
+			Therefore $\pi\alpha\pi^{-1}$ is the cycle $(\pi(a_1) \dots \pi(a_s))$
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{2}}
+			Let $\pi$ be a permutation such that $\pi(a_i) = b_i$ where $a_i$
+			and $b_i$ are elements from $\alpha$ and $\beta$ respectively and 
+			$\pi(k) = k$ where $k \notin \{a_1, \dots, a_s\}$
+			then
+			\begin{align*}
+				\pi\alpha\pi^{-1}(b_i) &= \pi\alpha\pi^{-1}(\pi(a_i)) \\
+									   &= \pi\alpha(a_i) \\
+									   &= \pi(a_{i+1}) \\
+									   &= b_{i+1}
+			\end{align*}
+			And for an element $k$ we have that
+			\begin{align*}
+				\pi\alpha\pi^{-1}(k) &= \pi\alpha\pi^{-1}(k) \\
+									   &= \pi\alpha(k) \\
+									   &= \pi(k) \\
+									   &= k
+			\end{align*}
+			Then $\beta$ maps the inputs to the same output as $\pi\alpha\pi^{-1}$.
+			Therefore $\beta$ is the conjugate of $\alpha$. In the same way can be
+			shown that $\alpha$ is the conjugate of $\beta$.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			$\alpha$ and $\beta$ are disjoint and we know that
+			$\pi\alpha\pi^{-1} = (\pi(a_1) \dots \pi(a_s))$ and 
+			$\pi\beta\pi^{-1} = (\pi(b_1) \dots \pi(b_s))$ and since $\pi$ is
+			a bijection, therefore $\pi\alpha\pi^{-1}$ is disjoint from
+			$\pi\beta\pi^{-1}$ too.
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			Let $a_i$ be an element of a cycle $\alpha_i$ of $\sigma$
+			then we have that 
+			$$\pi\sigma\pi^{-1}(a_i) = \pi\alpha_i\pi^{-1}(a_i)$$
+			Since all the cycles in $\sigma$ are disjoint, the only one that acts
+			over $a_i$ is $\alpha_i$. Also since $\pi$ is a bijection
+			$\pi\alpha_i\pi^{-1}$ is going to have the same amount of
+			elements as $\alpha_i$. Also, given that $\alpha_i$ could be any cycle of
+			$\sigma$ for $\pi\sigma\pi^{-1}$ we get the same amount of cycles
+			as $\sigma$, and since $\pi$ is a bijection they are disjoint.
+		\end{proof}
+\cleardoublepage
+		\begin{proof}{\textbf{5}}
+			Let $\pi$ be a permutation such that $\pi(a_{2i}) = a_{1i}$,
+			$\pi(b_{2i})=b_{1i}$ and $\pi(k) = k$ where $a_{1i}$, $a_{2i}$,
+			$b_{1i}$ and $b_{2i}$ are elements of $\alpha_1$, $\alpha_2$, $\beta_1$
+			and $\beta_2$ respectively and $k$ is some element such that
+			$k \notin \{a_{11} \dots a_{1s} \} \cup \{b_{11} \dots b_{1s} \}$.
+			Then we have that,
+			\begin{align*}
+				\pi\alpha_2\beta_2\pi^{-1}(a_{1i}) &= \pi\alpha_2\beta_2\pi^{-1}(\pi(a_{2i})) \\
+									   		       &= \pi\alpha_2(a_{2i}) \\
+									   			   &= \pi(a_{2(i+1)}) \\
+									   		       &= a_{1(i+1)}
+			\end{align*}
+			\begin{align*}
+				\pi\alpha_2\beta_2\pi^{-1}(b_{1i}) &= \pi\alpha_2\beta_2\pi^{-1}(\pi(b_{2i})) \\
+									   		       &= \pi\alpha_2\beta_2(b_{2i}) \\
+									   			   &= \pi\alpha_2(b_{2(i+1)}) \\
+									   			   &= \pi(b_{2(i+1)}) \\
+												   &= b_{1(i+1)}
+			\end{align*}
+			And for an element $k$ we have that
+			\begin{align*}
+				\pi\alpha_2\beta_2\pi^{-1}(k) &= \pi\alpha_2\beta_2(k) \\
+											  &= \pi\alpha_2(k) \\
+											  &= \pi(k) \\
+											  &= k
+			\end{align*}
+			So with this permutation definition for any input to $\pi\alpha_2\beta_2\pi^{-1}$
+			we obtain the same output as for $\alpha_1\beta_1$, therefore
+			$\pi\alpha_2\beta_2\pi^{-1}=\alpha_1\beta_1$.
+		\end{proof}
+
+		\subsubsection*{Solutions - Problem F}
+		\begin{proof}{\textbf{1}}
+			Let $a_i$ be an element of $\alpha$ then $\alpha(a_i) = a_{i+1}$
+			so for $\alpha^{2}$ we have that $\alpha^{2}(a_i) = a_{i+2}$, and
+			for $\alpha^{3}$ we have that $\alpha^{3}(a_i) = a_{i+3}$ if we
+			keep applying $\alpha$ to obtain $a_i$ as output when $a_i$ was the
+			input we need to apply $\alpha$ at least $s$ times. Therefore for 
+			an integer $k < s$ then $\alpha^{k} \neq \varepsilon$.
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			It follows immediately from 1 that the least positive integer $n$
+			such that $\alpha^{n} = \varepsilon$ is $s$ where $s$ is the length
+			of the cycle $\alpha$. Therefore the order of $\alpha$ is $s$.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			\begin{itemize}
+				\item [(a)] The order of $(12)(345)$ is 6.
+				\item [(b)] The order of $(12)(3456)$ is 4.
+				\item [(c)] The order of $(1234)(56789)$ is 20.
+			\end{itemize}
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			If $\alpha$ and $\beta$ are disjoint cycles of length 4 and 6 then
+			for $\alpha^k = \varepsilon$ we need that $k=4$ (or some multiple)
+			and for $\beta^{s} = \varepsilon$ we need $s=6$ (or some multiple).
+			So we want to know the correct $j$ such that
+			$(\alpha\beta)^j=\varepsilon$ since they commute we have that
+			$(\alpha\beta)^j=\alpha^j\beta^j$, then $j$ to fit the need for 
+			both $\alpha$ and $\beta$ must be $j=lcm(4,6)=12	$.
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			If $\alpha$ and $\beta$ are disjoint cycles of length $r$ and $s$
+			then $\alpha^r = \varepsilon$ and $\beta^{s} = \varepsilon$. If
+			follows from problem $4$ that to $(\alpha\beta)^n=\varepsilon$
+			then $n$ must be $n=lcm(r,s)$.
+		\end{proof}
+		\subsubsection*{Solutions - Problem G}
+		\begin{proof}{\textbf{1}}
+			We know that the product of an even permutation with an odd
+			permutation is an odd permutation so if $\alpha_1, \dots, \alpha_r$
+			are distinct even permutations and $\beta$ is an odd permutation
+			therefore $\alpha_1\beta, \dots, \alpha_r\beta$ are $r$ odd permutations.\\
+			They are distinct since if we assume by contradction that there
+			exists some $\beta$ such that $\alpha_i\beta = \alpha_j\beta$ where
+			$\alpha_i$ and $\alpha_j$ are any of the permutations, then
+			$\alpha_i\beta\beta^{-1} = \alpha_j\beta\beta^{-1}$ then
+			$\alpha_i = \alpha_j$ but we said they were distinct, so it
+			doesn't exists a $\beta$ such that $\alpha_i\beta = \alpha_j\beta$
+			and therefore the products $\alpha_1\beta, \dots, \alpha_r\beta$ are
+			distinct.
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			We know that the product of two odd permutations is an even
+			permutation so if $\beta_1, \dots, \beta_r$ are distinct odd permutations,
+			then \\
+			$\beta_1\beta_1, \beta_1\beta_2, \dots, \beta_1\beta_r$
+			are $r$ even permutations.\\
+			They are distinct since if we assume by contradction that there
+			exists a $\beta_1$ such that $\beta_1\beta_i = \beta_1\beta_j$ where
+			$\beta_i$ and $\beta_j$ are any of the permutations, then
+			$\beta_1^{-1}\beta_1\beta_i = \beta_1^{-1}\beta_1\beta_j$ so
+			$\beta_i = \beta_j$ but we said they were distinct, so it
+			doesn't exists a $\beta_1$ such that $\beta_1\beta_i = \beta_1\beta_j$
+			and therefore the products $\beta_1\beta_1, \dots, \beta_1\beta_r$ are
+			distinct.
+		\end{proof}
+		\begin{proof}{\textbf{3}}
+			Let $E = \{\alpha_1, \dots, \alpha_r\}$ be the set of all even
+			permutations in $S_n$, let $O$ be the set of all odd permutations
+			in $S_n$ and let $\beta$ be an odd permutation from $O$ then as we
+			saw $\{\alpha_1\beta, \dots, \alpha_r\beta\}$ is a set of odd 
+			permutations, then
+			$$|E| \leq |O|$$
+			because in $O$ we have at least $\{\alpha_1\beta, \dots, \alpha_r\beta\}$.\\ 
+			On the other hand, let $O = \{\beta_1, \dots, \beta_r\}$ be the set
+			of all odd permutations in $S_n$ and let $E$ be the set of all even
+			permutations in $S_n$ then as we saw
+			$\{\beta_1\beta_1, \beta_1\beta_2, \dots, \beta_1\beta_r\}$ is a
+			set of even permutations so we see that
+			$$|O| \leq |E|$$
+			because in $E$ we have at least $\{\beta_1\beta_1, \beta_1\beta_2, \dots, \beta_1\beta_r\}$.\\
+			Therefore, taking into account both results we have that
+			$$|O| = |E|$$
+		\end{proof}
+		\begin{proof}{\textbf{4}}
+			Let $E$ be the set of all even permutations, we want to prove that
+			$E$ is a subgroup of $S_n$, so:
+			\begin{itemize}
+				\item [(a)] Since $\varepsilon$ is even then $E$ is nonempty.
+				\item [(b)] Let $\alpha_1$ and $\alpha_2$ be two even
+				permutations then $\alpha_1\alpha_2$ is also even so
+				$\alpha_1\alpha_2 \in E$.
+				\item [(c)] Let $\alpha$ be an even permutation, we know that
+				$\alpha\alpha^{-1}=\varepsilon$ and since $\varepsilon$ is also
+				an even permutation then $\alpha^{-1}$ must be an even permutation.
+			\end{itemize}
+			Therefore since $E$ is nonempty and closed with respect to product
+			of permutations and inverses, then $E$ is a subgroup of $S_n$. 
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			Let $n$ determine the number of even permutations in $H$ and $m$
+			the number of odd permutations in $H$. We want to prove that either
+			$m=n$ or $m=0$.\\
+			If $m > 0$ then let's take $\beta \in H$ such that $\beta$ is an
+			odd permutation, we can construct a set
+			$O = \{\alpha\beta : \alpha \in H\text{ and }\alpha\text{ is even}\}$
+			then the number of elements in $O$ is $n \leq m$.\\
+			On the other hand, we can construct a set
+			$E = \{\beta\beta_i : \beta_i \in H\text{ and }\beta_i\text{ is odd}\}$
+			then the number of elements in $E$ is $m \leq n$.\\
+			Since $n \leq m$ and $m \leq n$ then $n=m$.\\
+			Therefore, either half of the permutations in $H$ are even permutations
+			and the other half are odd permutations, or every permutation in $H$
+			is even.
+		\end{proof}
+		\subsubsection*{Solutions - Problem H}
+		\begin{proof}{\textbf{1}}
+			We know that any permutation $\pi \in S_n$ can be written as an
+			even or odd product of transpositions, so the set $T$ of all
+			transpositions generates $S_n$. 
+		\end{proof}
+		\begin{proof}{\textbf{2}}
+			We know that we can write any permutation in $S_n$ as a single cycle
+			or as a product of disjoint cycles, then.\\
+			Let $\pi \in S_n$ and $\pi$ be a permutation that can be written as
+			a single cycle then $\pi=(s~s+1~s+2 \dots s+r)$ where 
+			$s \in \{1,2, \dots, n-1\}$ and $r \in \{1,2, \dots, n-s\}$ then we can
+			write
+			\begin{align*}
+				\pi &= (s~s+1~s+2 \dots s+r)\\
+				    &= (1~s+r) \dots (1~s+2)(1~s+1)(1~s)
+			\end{align*}
+			Now let $\pi=\sigma_1\sigma_2$ where each $\sigma$ is a disjoint cycle,
+			then we have that $\pi=(s~s+1~s+2 \dots s+r)(l~l+1 \dots l+m)$ where 
+			$l \in \{1,2, \dots, n-1\} - \{s,s+1,s+2, \dots, s+r\}$ and
+			$m \in \{1,2, \dots, n-l\}$, so $\pi$ can be written as
+			\begin{align*}
+				\pi &= (s~s+1~s+2 \dots s+r)(l~l+1 \dots l+m)\\
+				    &= (1~s+r) \dots (1~s+2)(1~s+1)(1~s)(1~l+m) \dots (1~l+1)(1~l)
+			\end{align*}
+			The same can be shown for any number of disjoint cycles.\\
+			Since we can write any permutation as a product of transpositions of
+			$T_1 = \{(1~2),(1~3), \dots, (1~n)\}$ then $T_1$ generates $S_n$.
+		\end{proof}
+		\begin{proof}{\textbf{5}}
+			Given that $(1~ \dots ~n)(12)(1~ \dots ~n)^{-1} = (2~3)$ then
+			$(1~2)(2~3)(1~2)=(1~3)$ now we can do 
+			$(1~ \dots ~n)(1~3)(1~ \dots ~n)^{-1} = (2~4)$ and then
+			$(1~2)(2~4)(1~2)=(1~4)$ by repeating this procedure we can generate
+			each element in $T_1 = \{(1~2),(1~3), \dots, (1~n)\}$ also we know
+			that $T_1$ generates $S_n$ and therefore $(1~2)$ and
+			$(1~ \dots ~n)$ generates $S_n$.
+		\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
